@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		0447AD021C846D2B00287A32 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447AD001C846D2B00287A32 /* loginViewController.swift */; };
 		0447AD031C846D2B00287A32 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0447AD011C846D2B00287A32 /* loginViewController.xib */; };
-		0447AD071C84814700287A32 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 0447AD061C84814700287A32 /* back.png */; };
-		0447AD091C8483A100287A32 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0447AD081C8483A100287A32 /* frame.png */; };
-		0447AD0B1C84882100287A32 /* icon_setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 0447AD0A1C84882100287A32 /* icon_setting.png */; };
 		04B9C2FC1C843BE000952A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9C2FB1C843BE000952A40 /* AppDelegate.swift */; };
 		04B9C3011C843BE000952A40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B9C2FF1C843BE000952A40 /* Main.storyboard */; };
 		04B9C3031C843BE000952A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B9C3021C843BE000952A40 /* Assets.xcassets */; };
@@ -46,9 +43,6 @@
 /* Begin PBXFileReference section */
 		0447AD001C846D2B00287A32 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		0447AD011C846D2B00287A32 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
-		0447AD061C84814700287A32 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		0447AD081C8483A100287A32 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
-		0447AD0A1C84882100287A32 /* icon_setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting.png; sourceTree = "<group>"; };
 		04B9C2F81C843BE000952A40 /* shop_ke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shop_ke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B9C2FB1C843BE000952A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B9C3001C843BE000952A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,20 +88,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0447AD051C8480EE00287A32 /* image */ = {
-			isa = PBXGroup;
-			children = (
-				0447AD061C84814700287A32 /* back.png */,
-				0447AD081C8483A100287A32 /* frame.png */,
-				0447AD0A1C84882100287A32 /* icon_setting.png */,
-			);
-			name = image;
-			sourceTree = "<group>";
-		};
 		04B9C2EF1C843BE000952A40 = {
 			isa = PBXGroup;
 			children = (
-				0447AD051C8480EE00287A32 /* image */,
 				04B9C2FA1C843BE000952A40 /* shop_ke */,
 				04B9C30F1C843BE000952A40 /* shop_keTests */,
 				04B9C31A1C843BE000952A40 /* shop_keUITests */,
@@ -271,12 +254,9 @@
 				0447AD031C846D2B00287A32 /* loginViewController.xib in Resources */,
 				04B9C3031C843BE000952A40 /* Assets.xcassets in Resources */,
 				04B9C3321C8443F700952A40 /* MeViewController.xib in Resources */,
-				0447AD071C84814700287A32 /* back.png in Resources */,
-				0447AD091C8483A100287A32 /* frame.png in Resources */,
 				04B9C3341C84440C00952A40 /* ActivityViewController.xib in Resources */,
 				04B9C3361C84441D00952A40 /* ProductViewController.xib in Resources */,
 				04B9C3011C843BE000952A40 /* Main.storyboard in Resources */,
-				0447AD0B1C84882100287A32 /* icon_setting.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
