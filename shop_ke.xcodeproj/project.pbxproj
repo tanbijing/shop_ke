@@ -48,6 +48,7 @@
 /* Begin PBXFileReference section */
 		0447AD001C846D2B00287A32 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		0447AD011C846D2B00287A32 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		0479DE7B1C859AEC00101F2D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04B9C2F81C843BE000952A40 /* shop_ke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shop_ke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B9C2FB1C843BE000952A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B9C3001C843BE000952A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 				04B9C32F1C8443B200952A40 /* ProductViewController.swift */,
 				04B9C3351C84441D00952A40 /* ProductViewController.xib */,
 				04B9C2FF1C843BE000952A40 /* Main.storyboard */,
+				0479DE7B1C859AEC00101F2D /* PrefixHeader.pch */,
 				04B9C3021C843BE000952A40 /* Assets.xcassets */,
 				04B9C3041C843BE000952A40 /* LaunchScreen.storyboard */,
 				04B9C3071C843BE000952A40 /* Info.plist */,
@@ -517,11 +519,14 @@
 			baseConfigurationReference = FD7DC5CFBFB4E4EF2AB447D2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = shop_ke/PrefixHeader.pch;
 				INFOPLIST_FILE = shop_ke/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pr.shop.shop-ke";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/shop_ke/PrefixHeader.pch";
 			};
 			name = Debug;
 		};
@@ -530,11 +535,14 @@
 			baseConfigurationReference = 68ED5AF721148080CEA8064B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = shop_ke/PrefixHeader.pch;
 				INFOPLIST_FILE = shop_ke/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pr.shop.shop-ke";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/shop_ke/PrefixHeader.pch";
 			};
 			name = Release;
 		};
