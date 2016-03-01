@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegisterViewController: UIViewController {
 
@@ -28,22 +29,20 @@ class RegisterViewController: UIViewController {
     
     //MARK:返回
     @IBAction func back(sender: UIButton) {
-        let nib = loginViewController()
-        self.presentViewController(nib, animated:false , completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK:注册操作
     @IBAction func registerBtn(sender: UIButton) {
-    
+        if self.accountRg.text == "" || self.passwordRg.text == ""{
+            //写提示“请输入用户名密码”
+            return
+        }
+        
+//        var params:Dictionary<String,AnyObject> = Dictionary()
+//        
+//        Alamofire.request(.GET,"", parameters:params)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

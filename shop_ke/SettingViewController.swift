@@ -21,7 +21,15 @@ class SettingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //MARK:返回
+    @IBAction func back(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK:是否推送
+    @IBAction func isPush(sender: UISwitch) {
+    
+    }
     /*
     // MARK: - Navigation
 

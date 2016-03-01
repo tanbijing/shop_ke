@@ -32,7 +32,8 @@ class MeViewController: UIViewController {
     
     //MARK: 设置
     @IBAction func settingBtn(sender: UIButton) {
-        
+        let nib = SettingViewController()
+        self.presentViewController(nib, animated: true, completion: nil)
     }
     
     

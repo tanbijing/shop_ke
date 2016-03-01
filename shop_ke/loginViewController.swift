@@ -39,8 +39,7 @@ class loginViewController: UIViewController {
     
     //MARK:返回
     @IBAction func back(sender: UIButton) {
-        let nib=MeViewController()
-        self.presentViewController(nib, animated:false, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*
     // MARK: - Navigation
