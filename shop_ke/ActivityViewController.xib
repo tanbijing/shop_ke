@@ -12,10 +12,42 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="rpJ-IA-cti">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.23921570180000001" green="1" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-            <point key="canvasLocation" x="393" y="-21"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-Xv-9CH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="Rjt-Ci-2Q0"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-9r-QfZ">
+                    <rect key="frame" x="0.0" y="160" width="375" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="SKX-cK-18D"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-fz-6rE">
+                    <rect key="frame" x="0.0" y="260" width="375" height="407"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dKP-9r-QfZ" secondAttribute="trailing" id="2rq-tL-TAS"/>
+                <constraint firstAttribute="trailing" secondItem="h6d-fz-6rE" secondAttribute="trailing" id="D6n-Kj-mF8"/>
+                <constraint firstAttribute="bottom" secondItem="h6d-fz-6rE" secondAttribute="bottom" id="JVp-R6-76d"/>
+                <constraint firstItem="h6d-fz-6rE" firstAttribute="top" secondItem="dKP-9r-QfZ" secondAttribute="bottom" id="K23-0R-NA2"/>
+                <constraint firstItem="dKP-9r-QfZ" firstAttribute="top" secondItem="Tx0-Xv-9CH" secondAttribute="bottom" id="Rat-fe-Y02"/>
+                <constraint firstItem="dKP-9r-QfZ" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="V6t-gh-6De"/>
+                <constraint firstItem="Tx0-Xv-9CH" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="dvS-Q5-g0Q"/>
+                <constraint firstItem="h6d-fz-6rE" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="lZe-Aq-XpZ"/>
+                <constraint firstAttribute="trailing" secondItem="Tx0-Xv-9CH" secondAttribute="trailing" id="x0i-Xd-nGI"/>
+                <constraint firstItem="Tx0-Xv-9CH" firstAttribute="top" secondItem="rpJ-IA-cti" secondAttribute="top" id="zSU-0U-x3D"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="392.5" y="-21.5"/>
         </view>
     </objects>
 </document>
