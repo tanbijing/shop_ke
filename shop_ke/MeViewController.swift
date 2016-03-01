@@ -21,19 +21,24 @@ class MeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBOutlet weak var headPic: UIImageView!
+    @IBOutlet weak var headPic: UIImageView!//头像
+    
+    //MARK: 登陆
     @IBAction func login(sender: UIButton) {
-        
         let nib=loginViewController()//需要跳转的viewcontroller
         self.presentViewController(nib, animated:true, completion: nil)
     }
     
     
-    
+    //MARK: 设置
     @IBAction func settingBtn(sender: UIButton) {
+        
     }
     
-    }
+    
+    
+    
+}
 
 
 

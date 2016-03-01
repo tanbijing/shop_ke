@@ -21,6 +21,10 @@
 		04B9C3321C8443F700952A40 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B9C3311C8443F600952A40 /* MeViewController.xib */; };
 		04B9C3341C84440C00952A40 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B9C3331C84440C00952A40 /* ActivityViewController.xib */; };
 		04B9C3361C84441D00952A40 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B9C3351C84441D00952A40 /* ProductViewController.xib */; };
+		04BF50491C85696C00D0632C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF50471C85696C00D0632C /* RegisterViewController.swift */; };
+		04BF504A1C85696C00D0632C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF50481C85696C00D0632C /* RegisterViewController.xib */; };
+		04BF504D1C857BBF00D0632C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF504B1C857BBF00D0632C /* SettingViewController.swift */; };
+		04BF504E1C857BBF00D0632C /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF504C1C857BBF00D0632C /* SettingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		04B9C3311C8443F600952A40 /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		04B9C3331C84440C00952A40 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
 		04B9C3351C84441D00952A40 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
+		04BF50471C85696C00D0632C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		04BF50481C85696C00D0632C /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		04BF504B1C857BBF00D0632C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		04BF504C1C857BBF00D0632C /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,10 @@
 				04B9C3311C8443F600952A40 /* MeViewController.xib */,
 				0447AD001C846D2B00287A32 /* loginViewController.swift */,
 				0447AD011C846D2B00287A32 /* loginViewController.xib */,
+				04BF50471C85696C00D0632C /* RegisterViewController.swift */,
+				04BF50481C85696C00D0632C /* RegisterViewController.xib */,
+				04BF504B1C857BBF00D0632C /* SettingViewController.swift */,
+				04BF504C1C857BBF00D0632C /* SettingViewController.xib */,
 				04B9C32D1C84439D00952A40 /* ActivityViewController.swift */,
 				04B9C3331C84440C00952A40 /* ActivityViewController.xib */,
 				04B9C32F1C8443B200952A40 /* ProductViewController.swift */,
@@ -251,12 +263,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B9C3061C843BE000952A40 /* LaunchScreen.storyboard in Resources */,
+				04BF504E1C857BBF00D0632C /* SettingViewController.xib in Resources */,
 				0447AD031C846D2B00287A32 /* loginViewController.xib in Resources */,
 				04B9C3031C843BE000952A40 /* Assets.xcassets in Resources */,
 				04B9C3321C8443F700952A40 /* MeViewController.xib in Resources */,
 				04B9C3341C84440C00952A40 /* ActivityViewController.xib in Resources */,
 				04B9C3361C84441D00952A40 /* ProductViewController.xib in Resources */,
 				04B9C3011C843BE000952A40 /* Main.storyboard in Resources */,
+				04BF504A1C85696C00D0632C /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +298,9 @@
 				04B9C32C1C84437500952A40 /* MeViewController.swift in Sources */,
 				04B9C32E1C84439D00952A40 /* ActivityViewController.swift in Sources */,
 				04B9C3301C8443B200952A40 /* ProductViewController.swift in Sources */,
+				04BF50491C85696C00D0632C /* RegisterViewController.swift in Sources */,
 				04B9C2FC1C843BE000952A40 /* AppDelegate.swift in Sources */,
+				04BF504D1C857BBF00D0632C /* SettingViewController.swift in Sources */,
 				0447AD021C846D2B00287A32 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

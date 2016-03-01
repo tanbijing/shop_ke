@@ -1,14 +1,14 @@
 //
-//  loginViewController.swift
+//  SettingViewController.swift
 //  shop_ke
 //
-//  Created by mac on 16/2/29.
+//  Created by mac on 16/3/1.
 //  Copyright © 2016年 peraytech. All rights reserved.
 //
 
 import UIKit
 
-class loginViewController: UIViewController {
+class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,26 +22,6 @@ class loginViewController: UIViewController {
     }
     
 
-    @IBOutlet weak var account: UITextField!//账户
-
-    @IBOutlet weak var password: UITextField!//密码
-    
-    //MARK:注册操作
-    @IBAction func register(sender: UIButton) {
-        let nib = RegisterViewController()
-        self.presentViewController(nib, animated: true, completion: nil)
-    }
-    
-    //MARK:登陆操作
-    @IBAction func loginBtn(sender: UIButton) {
-        
-    }
-    
-    //MARK:返回
-    @IBAction func back(sender: UIButton) {
-        let nib=MeViewController()
-        self.presentViewController(nib, animated:false, completion: nil)
-    }
     /*
     // MARK: - Navigation
 
