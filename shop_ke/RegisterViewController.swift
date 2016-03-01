@@ -39,9 +39,25 @@ class RegisterViewController: UIViewController {
             return
         }
         
-//        var params:Dictionary<String,AnyObject> = Dictionary()
-//        
-//        Alamofire.request(.GET,"", parameters:params)
+        //发送注册接口请求
+        var params:Dictionary<String,AnyObject> = Dictionary()
+        params[""] = ""
+        
+        Alamofire.request(.GET,"", parameters:params)
+            .responseJSON{ response in
+                print("=============1")
+                print(response.request)
+                print("=============2")
+                print(response.response)
+                print("=============3")
+                print(response.data)
+                print("=============4")
+                print(response.result)
+                print("=============5")
+                if let JSON = response.result.value{
+                    print("JSON:\(JSON)")
+                }
+        }
     }
 
 
