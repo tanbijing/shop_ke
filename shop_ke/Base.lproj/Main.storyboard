@@ -9,7 +9,7 @@
         <scene sceneID="nGj-u5-1Cn">
             <objects>
                 <viewController id="4y4-Ck-5Ai" customClass="ProductViewController" customModule="shop_ke" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="正品" id="YIJ-Rv-iby"/>
+                    <tabBarItem key="tabBarItem" title="正品" image="bk_icon" id="YIJ-Rv-iby"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2y8-aU-p6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -20,7 +20,7 @@
         <scene sceneID="LPj-Uh-fj6">
             <objects>
                 <viewController id="GKQ-Oh-nYj" customClass="ActivityViewController" customModule="shop_ke" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" id="NKK-4L-FXQ"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="home_icon" id="NKK-4L-FXQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMV-r7-boc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,7 +50,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MeViewController" customModule="shop_ke" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="1Qs-2M-lLF"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="w_icon" id="1Qs-2M-lLF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,4 +58,9 @@
             <point key="canvasLocation" x="668.5" y="303.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bk_icon" width="30" height="30"/>
+        <image name="home_icon" width="30" height="30"/>
+        <image name="w_icon" width="30" height="30"/>
+    </resources>
 </document>
