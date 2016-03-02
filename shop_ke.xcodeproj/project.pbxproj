@@ -110,6 +110,11 @@
 				0479DE7D1C86863200101F2D /* HttpManager.swift */,
 			);
 			name = model;
+		042AA85F1C868790005783AC /* cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		04B9C2EF1C843BE000952A40 = {
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				0479DE7C1C86859000101F2D /* model */,
+				042AA85F1C868790005783AC /* cell */,
 				04B9C2FB1C843BE000952A40 /* AppDelegate.swift */,
 				04B9C32B1C84437500952A40 /* MeViewController.swift */,
 				04B9C3311C8443F600952A40 /* MeViewController.xib */,
