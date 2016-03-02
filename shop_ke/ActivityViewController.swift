@@ -11,6 +11,7 @@ import Alamofire
 
 class ActivityViewController: UIViewController {
     @IBOutlet weak var bannerSv: UIScrollView!
+    var activities:[Activity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,17 @@ class ActivityViewController: UIViewController {
         params["num"] = "4"
         params["pa"] = "pa"
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
-                print("success:\(successData)")
+                self.activities = Activity.saveDataToModel(successData["activities"])
+                self.performSelector(Selector("loadBanner"), onThread: NSThread.mainThread(), withObject:self.activities, waitUntilDone: true)
             }) { (failData) -> Void in
                 print(failData)
-        }
+        }    }
+    func loadBanner(){
+        print(self.activities.count)
+        var image = UIImageView.init(image: UIImage.init(contentsOfFile: activities[0].image_url!))
+        image.frame = CGRectMake(0, 0, self.bannerSv.frame.width, self.bannerSv.frame.height)
+        image.backgroundColor = UIColor.redColor()
+        self.bannerSv.addSubview(image)
     }
     
     
