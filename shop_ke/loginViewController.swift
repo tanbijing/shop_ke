@@ -26,6 +26,13 @@ class loginViewController: UIViewController {
 
     @IBOutlet weak var password: UITextField!//密码
     
+    //MARK:触摸键盘意外界面消失键盘
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.account.resignFirstResponder()
+        self.password.resignFirstResponder()
+    }
+
+    
     //MARK:注册操作
     @IBAction func register(sender: UIButton) {
         let nib = RegisterViewController()
