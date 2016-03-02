@@ -29,20 +29,10 @@ class ActivityViewController: UIViewController {
         params["client_type"] = "iphone"
         params["num"] = "4"
         params["pa"] = "pa"
-        Alamofire.request(.GET, API_URL+"/brand_theme_index", parameters: params)
-            .responseJSON { response in
-                print("==============1")
-                print(response.request)  // original URL request
-                print("==============2")
-                print(response.response) // URL response
-                print("==============3")
-                print(response.data)     // server data
-                print("==============4")
-                print(response.result)   // result of response serialization
-                print("==============5")
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
+                print("success:\(successData)")
+            }) { (failData) -> Void in
+                print(failData)
         }
     }
     
