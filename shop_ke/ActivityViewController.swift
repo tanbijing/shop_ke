@@ -36,12 +36,17 @@ class ActivityViewController: UIViewController {
                 self.performSelector(Selector("loadBanner"), onThread: NSThread.mainThread(), withObject:self.activities, waitUntilDone: true)
             }) { (failData) -> Void in
                 print(failData)
-        }    }
+        }
+    }
+    
     func loadBanner(){
         print(self.activities.count)
-        var image = UIImageView.init(image: UIImage.init(contentsOfFile: activities[0].image_url!))
+        let image = UIImageView.init(image: UIImage.init())
         image.frame = CGRectMake(0, 0, self.bannerSv.frame.width, self.bannerSv.frame.height)
-        image.backgroundColor = UIColor.redColor()
+        if let activityImageUrl = activities[0].image_path {
+            print(activityImageUrl)
+            image.setWebImage(activityImageUrl , placeHolder: UIImage.init(named: "w_icon"))
+        }
         self.bannerSv.addSubview(image)
     }
     
