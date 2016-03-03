@@ -56,18 +56,49 @@ class loginViewController: UIViewController ,UITextFieldDelegate{
             return
         }
         
-        var params:Dictionary<String,AnyObject> = Dictionary()
+        var params = [String: AnyObject]()
         params["name"] = account.text
         params["pwd"] = password.text
         HttpManager.httpGetRequest(.POST, api_url: API_URL+"/login", params: params, onSuccess: {
             (successData) -> Void in
             print("JSON:\(successData)")
-            if String(successData["flag"]) == "1"{
+            print("\((successData["flag"])!)")
+            
+            if let flag = successData["flag"] as? Int where flag == 1 {
+                print(flag)
+            }
+//            let temp = successData["flag"]
+//            if successData["flag"] as! Int == 1 {
+            if let flag = successData["flag"] as? Int where flag == 1 {
                 self.MsgShow("登陆成功", action: {
                     self.dismissViewControllerAnimated(true, completion: nil)
+
+                    let a = create()
+                     let coll = successData["collect_actiities"] as? String
+                    print(coll)
+                    a.flag = String(successData["flag"]!!)
+//                    a.message = (successData["message"] as? String)!
+                    a.notice = String(successData["notice"]!!)
+                    a.orders = String(successData["orders"]!!)
+                    a.email = String(successData["email"])
+                    a.experience = String(successData["experience"])
+                    a.freeze_integral = String(successData["freeze_integral"])
+                    a.id = String(successData["id"])
+                    a.img_url = String(successData["web_user"]!!["img_url"]!!)
+//                    a.img_url = (successData["web_user"] as? Dictionary)!["img_url"] as? String
+                    a.integral = String(successData["integral"])
+                    a.join_time = String(successData["join_time"])
+//                    a.name = successData["name"] as! String
+                    a.nickname = String(successData["nickname"])
+                    a.phone = String(successData["phone"])
+                    a.user_id = String(successData["user_id"])
+                    print("\(a)")
                 })
             }else{
-                self.MsgShow("登录失败，请重新登录", action: {})
+                self.MsgShow("登录失败，请重新登录", action: {
+                    self.account.text = ""
+                    self.password.text = ""
+                })
             }
             
         }) { (failData) -> Void in

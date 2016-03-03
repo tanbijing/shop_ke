@@ -12,14 +12,22 @@ class MeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.headPic.image = UIImage(named:"\(create().img_url)")
+        print("图片名：\(create().img_url)")
+        //        self.userName.textInputContextIdentifier
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBOutlet weak var userName: UIButton! //用户名
 
     @IBOutlet weak var headPic: UIImageView!//头像
     

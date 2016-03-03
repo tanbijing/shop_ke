@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController" customModule="shop_ke" customModuleProvider="target">
             <connections>
                 <outlet property="headPic" destination="FrT-nr-J8w" id="c59-lA-anw"/>
+                <outlet property="userName" destination="KE4-f3-Ges" id="apL-Vh-7IY"/>
                 <outlet property="view" destination="KcZ-GH-6cN" id="Xqs-50-sTe"/>
             </connections>
         </placeholder>
