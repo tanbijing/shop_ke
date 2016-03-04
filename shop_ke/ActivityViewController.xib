@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityViewController" customModule="shop_ke" customModuleProvider="target">
             <connections>
                 <outlet property="bannerSv" destination="Tx0-Xv-9CH" id="Bc2-x6-Cy0"/>
+                <outlet property="pageControl" destination="iXT-MF-wFp" id="JdY-1F-gxL"/>
                 <outlet property="view" destination="rpJ-IA-cti" id="Bbk-3y-TwI"/>
             </connections>
         </placeholder>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-Xv-9CH">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx0-Xv-9CH">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="160" id="Rjt-Ci-2Q0"/>
@@ -25,6 +26,11 @@
                         <outlet property="delegate" destination="-1" id="25A-fh-tKZ"/>
                     </connections>
                 </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-MF-wFp">
+                    <rect key="frame" x="168" y="121" width="39" height="37"/>
+                    <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" red="0.96862745100000003" green="0.35686274509999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-9r-QfZ">
                     <rect key="frame" x="0.0" y="160" width="375" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,6 +46,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dKP-9r-QfZ" secondAttribute="trailing" id="2rq-tL-TAS"/>
+                <constraint firstItem="dKP-9r-QfZ" firstAttribute="top" secondItem="iXT-MF-wFp" secondAttribute="bottom" constant="2" id="4f2-4x-Lsq"/>
                 <constraint firstAttribute="trailing" secondItem="h6d-fz-6rE" secondAttribute="trailing" id="D6n-Kj-mF8"/>
                 <constraint firstAttribute="bottom" secondItem="h6d-fz-6rE" secondAttribute="bottom" id="JVp-R6-76d"/>
                 <constraint firstItem="h6d-fz-6rE" firstAttribute="top" secondItem="dKP-9r-QfZ" secondAttribute="bottom" id="K23-0R-NA2"/>
@@ -47,6 +54,7 @@
                 <constraint firstItem="dKP-9r-QfZ" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="V6t-gh-6De"/>
                 <constraint firstItem="Tx0-Xv-9CH" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="dvS-Q5-g0Q"/>
                 <constraint firstItem="h6d-fz-6rE" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="lZe-Aq-XpZ"/>
+                <constraint firstItem="iXT-MF-wFp" firstAttribute="centerX" secondItem="rpJ-IA-cti" secondAttribute="centerX" id="wbT-IF-ys3"/>
                 <constraint firstAttribute="trailing" secondItem="Tx0-Xv-9CH" secondAttribute="trailing" id="x0i-Xd-nGI"/>
                 <constraint firstItem="Tx0-Xv-9CH" firstAttribute="top" secondItem="rpJ-IA-cti" secondAttribute="top" id="zSU-0U-x3D"/>
             </constraints>

@@ -9,9 +9,12 @@
 import UIKit
 import Alamofire
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: UIViewController,UIScrollViewDelegate {
     @IBOutlet weak var bannerSv: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     var activities:[Activity] = []
+    var bannerTime:NSTimer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,14 @@ class ActivityViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        print(scrollView.contentOffset.x)
+        if scrollView != self.bannerSv{
+            return
+        }
+        self.pageControl.currentPage = Int((scrollView.contentOffset.x-scrollView.frame.width)/scrollView.frame.width) + 1
     }
     
     func loadData(){
@@ -41,13 +52,37 @@ class ActivityViewController: UIViewController {
     
     func loadBanner(){
         print(self.activities.count)
-        let image = UIImageView.init(image: UIImage.init())
-        image.frame = CGRectMake(0, 0, self.bannerSv.frame.width, self.bannerSv.frame.height)
-        if let activityImageUrl = activities[0].image_path {
-            print(activityImageUrl)
-            image.setWebImage(activityImageUrl , placeHolder: UIImage.init(named: "w_icon"))
+        for image in self.bannerSv.subviews{
+            image.removeFromSuperview()
         }
-        self.bannerSv.addSubview(image)
+        self.pageControl.numberOfPages = self.activities.count
+        self.bannerSv.contentSize = CGSizeMake(self.bannerSv.frame.width*CGFloat(self.activities.count), self.bannerSv.frame.height)
+        var pic_index = 0
+        for activity in activities{
+            let image = UIImageView.init(frame: CGRectMake(self.bannerSv.frame.width*CGFloat(pic_index), 0, self.bannerSv.frame.width, self.bannerSv.frame.height))
+            if let activityImageUrl = activity.image_path {
+                image.setWebImage(activityImageUrl , placeHolder: UIImage.init(named: "w_icon"))
+            }
+            self.bannerSv.addSubview(image)
+            pic_index += 1
+        }
+        bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
+    }
+    
+    func loopBannerImage(){
+        UIView.animateWithDuration(0.7, animations: { () -> Void in
+                self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.contentOffset.x+self.bannerSv.frame.size.width, 0), animated: true)
+            }) { (result) -> Void in
+                print(self.pageControl.currentPage)
+                if self.pageControl.currentPage==4{
+                    self.bannerSv.setContentOffset(CGPointMake(0, 0), animated: true)
+                }
+        }
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:0.7f];
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//        [sv setContentOffset:CGPointMake(rect.size.width * 2, 0.0f) animated:YES];
+//        [UIView commitAnimations];
     }
     
     
