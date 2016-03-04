@@ -55,7 +55,7 @@
                                 <action selector="login:" destination="-1" eventType="touchUpInside" id="hQa-i3-esJ"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lbtn_bg" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-nr-J8w">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="w_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-nr-J8w">
                             <rect key="frame" x="20" y="20" width="60" height="60"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -125,5 +125,6 @@
     <resources>
         <image name="icon_setting" width="32" height="32"/>
         <image name="lbtn_bg" width="236" height="80"/>
+        <image name="w_icon" width="30" height="30"/>
     </resources>
 </document>

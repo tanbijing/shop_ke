@@ -30,14 +30,11 @@ class SettingViewController: UIViewController {
     @IBAction func isPush(sender: UISwitch) {
     
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //MARK:退出账号
+    @IBAction func exit(sender: UIButton) {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("User")
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
 
 }

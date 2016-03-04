@@ -19,19 +19,29 @@ class MeViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        print("账户：＋＋＋＋\()")
-        if User().flag == 1 {
-        self.headPic.image = UIImage(named:"\(User().img_url)")
-        print("图片名：\(User().img_url)")
-            self.userName.setTitle(User().name!, forState: UIControlState.Normal)
-            print(self.userName.titleLabel?.text)
+        
+        //设置用户名
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let dictionary = userDefault.objectForKey("User") as? NSDictionary
+        
+        print("\(userDefault.objectForKey("User") as? NSDictionary)")
+//        if dictionary!["flag"] as? Int == 1{
+        if let flag = dictionary?["flag"] as? Int where flag == 1 {
+//            print("图片名：\((dictionary!["web_user"]!["img_url"] as? String)!)")
+//            self.headPic.image = UIImage.init(named:"w_icon.png")
+        self.userName.setTitle((dictionary!["web_user"]!["name"] as? String)!, forState: UIControlState.Normal)
+        self.userName.enabled = false
+        }else{
+            self.userName.setTitle("登录正品折扣", forState: UIControlState.Normal)
+            self.userName.enabled = true
+
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     @IBOutlet weak var userName: UIButton! //用户名
 
     @IBOutlet weak var headPic: UIImageView!//头像

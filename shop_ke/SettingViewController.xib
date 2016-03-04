@@ -200,6 +200,9 @@
                     <state key="normal" title="退出账号" backgroundImage="lbtn_bg">
                         <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="exit:" destination="-1" eventType="touchUpInside" id="byO-mx-tIc"/>
+                    </connections>
                 </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a8H-rU-Zjx">
                     <rect key="frame" x="239" y="125" width="51" height="31"/>
