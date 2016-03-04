@@ -19,13 +19,12 @@ class Activity {
         var return_datas:[Activity] = []
         if let activities = data{
             for index in 0..<activities.count {
-//                print(activities[index])
                 let activity_data = activities[index]
                 let activity = Activity()
-                activity.image_path = String(activity_data["image_path"])
-                activity.image_url = String(activity_data["image_url"])
-                activity.name = String(activity_data["name"])
-                activity.url = String(activity_data["url"])
+                activity.image_path = activity_data["image_path"] as? String
+                activity.image_url = activity_data["image_url"] as? String
+                activity.name = activity_data["name"] as? String
+                activity.url = activity_data["url"] as? String
                 return_datas.append(activity)
             }
         }
