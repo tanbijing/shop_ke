@@ -58,30 +58,12 @@ class RegisterViewController: UIViewController ,UITextFieldDelegate{
             return
         }
        // 发送注册接口请求
-        var params:Dictionary<String,AnyObject> = Dictionary()
+        var params = [String: AnyObject]()
         params["name"] = accountRg.text
         params["pwd"] = passwordRg.text
         HttpManager.httpGetRequest(.POST, api_url: API_URL+"/register", params: params, onSuccess: {
             (successData) -> Void in
                 print("接口返回结果：\(successData)")
-                var a = create()
-                a.collect_activities = String(successData["collect_actiities"])
-                a.flag = String(successData["flag"])
-                a.message = String(successData["message"])
-                a.notice = String(successData["notice"])
-                a.orders = String(successData["orders"])
-                a.email = String(successData["email"])
-                a.experience = String(successData["experience"])
-                a.freeze_integral = String(successData["freeze_integral"])
-                a.id = String(successData["id"])
-                a.img_url = String(successData["img_url"])
-                a.integral = String(successData["integral"])
-                a.join_time = String(successData["join_time"])
-                a.name = String(successData["name"])
-                a.nickname = String(successData["nickname"])
-                a.phone = String(successData["phone"])
-                a.user_id = String(successData["user_id"])
-//                a.web_user = String(successData["web_user"])
                 self.MsgShow("注册成功", action: {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
@@ -96,7 +78,6 @@ class RegisterViewController: UIViewController ,UITextFieldDelegate{
 //                    self.MsgShow("注册成功", action: {
 //                        self.dismissViewControllerAnimated(true, completion: nil)
 //                    })
-//
 //                }else{
 //                    self.MsgShow("注册失败", action: {})
 //                }
