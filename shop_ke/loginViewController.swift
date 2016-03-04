@@ -56,18 +56,29 @@ class loginViewController: UIViewController ,UITextFieldDelegate{
             return
         }
         
-        var params:Dictionary<String,AnyObject> = Dictionary()
+        var params = [String: AnyObject]()
         params["name"] = account.text
         params["pwd"] = password.text
         HttpManager.httpGetRequest(.POST, api_url: API_URL+"/login", params: params, onSuccess: {
             (successData) -> Void in
             print("JSON:\(successData)")
-            if String(successData["flag"]) == "1"{
+            print("\((successData["flag"])!)")
+            
+//            if let flag = successData["flag"] as? Int where flag == 1 {
+//                print(flag)
+//            }
+//            let temp = successData["flag"]
+//            if successData["flag"] as! Int == 1 {
+            if let flag = successData["flag"] as? Int where flag == 1 {
                 self.MsgShow("登陆成功", action: {
                     self.dismissViewControllerAnimated(true, completion: nil)
+                    User.fromDictionary(successData as! NSDictionary)
                 })
             }else{
-                self.MsgShow("登录失败，请重新登录", action: {})
+                self.MsgShow("登录失败，请重新登录", action: {
+                    self.account.text = ""
+                    self.password.text = ""
+                })
             }
             
         }) { (failData) -> Void in

@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController" customModule="shop_ke" customModuleProvider="target">
             <connections>
                 <outlet property="headPic" destination="FrT-nr-J8w" id="c59-lA-anw"/>
+                <outlet property="userName" destination="KE4-f3-Ges" id="apL-Vh-7IY"/>
                 <outlet property="view" destination="KcZ-GH-6cN" id="Xqs-50-sTe"/>
             </connections>
         </placeholder>
@@ -47,16 +48,16 @@
                                 <constraint firstAttribute="height" constant="40" id="OzA-L1-jya"/>
                                 <constraint firstAttribute="width" constant="160" id="Ub4-l6-frh"/>
                             </constraints>
-                            <state key="normal" title="登陆正品折扣">
+                            <state key="normal" title="登陆正品折扣" backgroundImage="lbtn_bg">
                                 <color key="titleColor" red="1" green="0.074093134120000001" blue="0.19144769110000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="login:" destination="-1" eventType="touchUpInside" id="hQa-i3-esJ"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-nr-J8w">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lbtn_bg" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-nr-J8w">
                             <rect key="frame" x="20" y="20" width="60" height="60"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="PGw-Nv-r1x"/>
                                 <constraint firstAttribute="height" constant="60" id="fB0-i5-k9d"/>
@@ -123,5 +124,6 @@
     </objects>
     <resources>
         <image name="icon_setting" width="32" height="32"/>
+        <image name="lbtn_bg" width="236" height="80"/>
     </resources>
 </document>
