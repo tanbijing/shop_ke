@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VO3-Lg-RIZ">
-                            <rect key="frame" x="30" y="10" width="40" height="40"/>
+                            <rect key="frame" x="10" y="10" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="YRC-vh-m9p"/>
                                 <constraint firstAttribute="width" secondItem="VO3-Lg-RIZ" secondAttribute="height" multiplier="1:1" id="xSB-1C-iuP"/>
@@ -44,7 +44,7 @@
                     <color key="backgroundColor" red="1" green="0.074093134120000001" blue="0.19144769110000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="1ja-rg-FtF"/>
-                        <constraint firstItem="VO3-Lg-RIZ" firstAttribute="leading" secondItem="AJp-4W-mSw" secondAttribute="leading" constant="30" id="9PQ-qH-GpR"/>
+                        <constraint firstItem="VO3-Lg-RIZ" firstAttribute="leading" secondItem="AJp-4W-mSw" secondAttribute="leading" constant="10" id="9PQ-qH-GpR"/>
                         <constraint firstItem="0GI-rk-elX" firstAttribute="centerY" secondItem="AJp-4W-mSw" secondAttribute="centerY" id="ANS-3T-P3s"/>
                         <constraint firstItem="0GI-rk-elX" firstAttribute="centerX" secondItem="AJp-4W-mSw" secondAttribute="centerX" id="ByC-Iu-2sw"/>
                         <constraint firstItem="VO3-Lg-RIZ" firstAttribute="centerY" secondItem="AJp-4W-mSw" secondAttribute="centerY" id="KWA-3g-yv7"/>

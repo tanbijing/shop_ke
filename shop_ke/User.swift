@@ -26,8 +26,6 @@ class User {
     var nickname :String? = ""
     var phone : String? = ""
     var user_id :Int? = 0
-    var userDefault = NSUserDefaults.standardUserDefaults()
-
     
     //获取用户信息
     static func fromDictionary(dict: NSDictionary ){
