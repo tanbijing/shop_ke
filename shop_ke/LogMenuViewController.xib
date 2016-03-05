@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogMenuViewController" customModule="shop_ke" customModuleProvider="target">
+            <connections>
+                <outlet property="logCollectionView" destination="IJl-r0-cad" id="Fd9-AY-fFD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tif-Ax-gEz">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xV0-EW-wBl">
+                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="IGF-wU-5Or"/>
+                                <constraint firstAttribute="width" secondItem="xV0-EW-wBl" secondAttribute="height" multiplier="1:1" id="qcI-vM-E1n"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="back"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="OqI-4q-L7F"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分类" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPW-pJ-Ys6">
+                            <rect key="frame" x="143" y="10" width="109" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="5tP-SD-XQQ"/>
+                                <constraint firstAttribute="width" secondItem="dPW-pJ-Ys6" secondAttribute="height" multiplier="109:40" id="i3y-46-QHB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.074093134120000001" blue="0.19144769110000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="dPW-pJ-Ys6" firstAttribute="centerY" secondItem="tif-Ax-gEz" secondAttribute="centerY" id="0bM-r9-XL6"/>
+                        <constraint firstAttribute="width" secondItem="tif-Ax-gEz" secondAttribute="height" multiplier="25:4" id="5JO-QC-LBl"/>
+                        <constraint firstItem="xV0-EW-wBl" firstAttribute="centerY" secondItem="tif-Ax-gEz" secondAttribute="centerY" id="EyD-Yr-O3t"/>
+                        <constraint firstItem="dPW-pJ-Ys6" firstAttribute="centerX" secondItem="tif-Ax-gEz" secondAttribute="centerX" constant="10" id="Pu3-8x-FFi"/>
+                        <constraint firstItem="xV0-EW-wBl" firstAttribute="leading" secondItem="tif-Ax-gEz" secondAttribute="leading" constant="10" id="Sah-my-86O"/>
+                        <constraint firstAttribute="height" constant="60" id="lHU-0F-qjE"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vjn-Xv-GKN">
+                    <rect key="frame" x="0.0" y="60" width="93" height="607"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Vjn-Xv-GKN" secondAttribute="height" multiplier="93:607" id="Ewr-fa-Yoi"/>
+                        <constraint firstAttribute="height" constant="607" id="y8e-rB-Hg8"/>
+                    </constraints>
+                </scrollView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IJl-r0-cad">
+                    <rect key="frame" x="93" y="60" width="282" height="607"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XXs-yR-Qpj">
+                        <size key="itemSize" width="80" height="100"/>
+                        <size key="headerReferenceSize" width="50" height="30"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Lc0-e2-FNJ"/>
+                        <outlet property="delegate" destination="-1" id="Yna-NG-5kH"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tif-Ax-gEz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1nl-LW-OfH"/>
+                <constraint firstItem="tif-Ax-gEz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FHC-WL-lzD"/>
+                <constraint firstAttribute="bottom" secondItem="IJl-r0-cad" secondAttribute="bottom" id="NN1-Af-Jl3"/>
+                <constraint firstItem="IJl-r0-cad" firstAttribute="leading" secondItem="Vjn-Xv-GKN" secondAttribute="trailing" id="Pnq-ae-qCp"/>
+                <constraint firstItem="Vjn-Xv-GKN" firstAttribute="top" secondItem="tif-Ax-gEz" secondAttribute="bottom" id="V8S-Eh-Fv5"/>
+                <constraint firstAttribute="bottom" secondItem="Vjn-Xv-GKN" secondAttribute="bottom" id="afj-QG-EYd"/>
+                <constraint firstAttribute="trailing" secondItem="IJl-r0-cad" secondAttribute="trailing" id="f8Z-mB-ChI"/>
+                <constraint firstItem="Vjn-Xv-GKN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hMw-Vy-2eN"/>
+                <constraint firstItem="IJl-r0-cad" firstAttribute="top" secondItem="tif-Ax-gEz" secondAttribute="bottom" id="rgn-6p-wq8"/>
+                <constraint firstAttribute="trailing" secondItem="tif-Ax-gEz" secondAttribute="trailing" id="vPs-P4-e4V"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="87" height="88"/>
+    </resources>
+</document>

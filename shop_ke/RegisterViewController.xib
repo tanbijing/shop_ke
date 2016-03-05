@@ -32,7 +32,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-GK-yKn">
-                            <rect key="frame" x="30" y="10" width="40" height="40"/>
+                            <rect key="frame" x="10" y="10" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="LB3-GK-yKn" secondAttribute="height" multiplier="1:1" id="Hmc-J3-nGt"/>
                                 <constraint firstAttribute="height" constant="40" id="n3e-5N-wJY"/>
@@ -46,10 +46,10 @@
                     <color key="backgroundColor" red="1" green="0.074093134120000001" blue="0.19144769110000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="6Yu-0f-H1N"/>
-                        <constraint firstItem="Qd0-ti-Q83" firstAttribute="leading" secondItem="LB3-GK-yKn" secondAttribute="trailing" constant="77" id="S0n-dB-6sp"/>
+                        <constraint firstItem="Qd0-ti-Q83" firstAttribute="leading" secondItem="LB3-GK-yKn" secondAttribute="trailing" constant="97" id="S0n-dB-6sp"/>
                         <constraint firstItem="Qd0-ti-Q83" firstAttribute="centerY" secondItem="kn6-bR-6a5" secondAttribute="centerY" id="ZLE-fd-ZJD"/>
                         <constraint firstItem="LB3-GK-yKn" firstAttribute="centerY" secondItem="kn6-bR-6a5" secondAttribute="centerY" id="cck-MS-Sef"/>
-                        <constraint firstItem="LB3-GK-yKn" firstAttribute="leading" secondItem="kn6-bR-6a5" secondAttribute="leading" constant="30" id="zsJ-uU-Q8F"/>
+                        <constraint firstItem="LB3-GK-yKn" firstAttribute="leading" secondItem="kn6-bR-6a5" secondAttribute="leading" constant="10" id="zsJ-uU-Q8F"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame" translatesAutoresizingMaskIntoConstraints="NO" id="cGB-yP-A71">
