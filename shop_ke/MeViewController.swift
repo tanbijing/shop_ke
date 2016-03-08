@@ -25,12 +25,9 @@ class MeViewController: UIViewController {
         let dictionary = userDefault.objectForKey("User") as? NSDictionary
         
         print("\(userDefault.objectForKey("User") as? NSDictionary)")
-//        if dictionary!["flag"] as? Int == 1{
         if let flag = dictionary?["flag"] as? Int where flag == 1 {
-//            print("图片名：\((dictionary!["web_user"]!["img_url"] as? String)!)")
-//            self.headPic.image = UIImage.init(named:"w_icon.png")
-        self.userName.setTitle((dictionary!["web_user"]!["name"] as? String)!, forState: UIControlState.Normal)
-        self.userName.enabled = false
+            self.userName.setTitle((dictionary!["web_user"]!["name"] as? String)!, forState: UIControlState.Normal)
+            self.userName.enabled = false
         }else{
             self.userName.setTitle("登录正品折扣", forState: UIControlState.Normal)
             self.userName.enabled = true

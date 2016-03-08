@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CA4-vq-cVN">
-                            <rect key="frame" x="30" y="10" width="40" height="40"/>
+                            <rect key="frame" x="10" y="10" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="CA4-vq-cVN" secondAttribute="height" multiplier="1:1" id="YXJ-Xb-tyj"/>
                                 <constraint firstAttribute="height" constant="40" id="dXZ-iO-mCa"/>
@@ -49,7 +49,7 @@
                         <constraint firstItem="i1Z-iI-gRz" firstAttribute="centerY" secondItem="u0e-cF-ozK" secondAttribute="centerY" id="G5D-Dk-oBO"/>
                         <constraint firstItem="CA4-vq-cVN" firstAttribute="centerY" secondItem="u0e-cF-ozK" secondAttribute="centerY" id="JZ4-iR-PXT"/>
                         <constraint firstAttribute="height" constant="60" id="cuM-iw-DY5"/>
-                        <constraint firstItem="CA4-vq-cVN" firstAttribute="leading" secondItem="u0e-cF-ozK" secondAttribute="leading" constant="30" id="fSh-Ad-rJm"/>
+                        <constraint firstItem="CA4-vq-cVN" firstAttribute="leading" secondItem="u0e-cF-ozK" secondAttribute="leading" constant="10" id="fSh-Ad-rJm"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正品折扣登陆" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-EJ-Pzc">
