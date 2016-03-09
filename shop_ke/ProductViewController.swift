@@ -16,18 +16,9 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadTagView()
 
-        self.goodsScrollView.contentSize = self.goodsScrollView.bounds.size
-        
-        //从接口获取标签保存至本地
-        let params = [String : AnyObject]()
-        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/tag_list?p=2", params: params, onSuccess: { (successData) -> Void in
-            Tag.saveTags(successData as! NSArray)
-            }) { (failData) -> Void in
-                print("保存标签失败")
-        }
-        [self .loadTagView()]
-        
         //创建一个cell放入内存以便重用
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
     }
@@ -42,8 +33,6 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         
         let save = NSUserDefaults.standardUserDefaults()
         let arr = save.objectForKey("saveTags")
-//        print(arr!)
-//        print(arr!.count)
         
         var index :Int
         self.goodsScrollView.contentSize = CGSizeMake((CGFloat(arr!.count)*65), 30)

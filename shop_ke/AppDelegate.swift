@@ -14,8 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
 
+    func loadTags(){
+        //从接口获取标签保存至本地
+        let params = [String : AnyObject]()
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/tag_list?p=2", params: params, onSuccess: { (successData) -> Void in
+            Tag.saveTags(successData as! NSArray)
+            }) { (failData) -> Void in
+                print("保存标签失败")
+        }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.loadTags()
         return true
     }
 
