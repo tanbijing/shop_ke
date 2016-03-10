@@ -29,29 +29,7 @@ class User {
     
     //获取用户信息
     static func fromDictionary(dict: NSDictionary ){
-//        let u = User()
-//        u.collect_activities = dict["collect_activities"] as? Int
-//        u.flag = dict["flag"] as? Int
-//        u.message = dict["message"]as? String
-//        u.notice = dict["notice"] as? String
-//        u.orders = dict["orders"] as? Int
-//        u.email = dict["web_user"]!["email"] as? String
-//        u.experience = dict["web_user"]!["experience"] as? Int
-//        u.freeze_integral = dict["web_user"]!["freeze_integral"] as? Int
-//        u.id = dict["web_user"]!["id"] as? Int
-//        u.img_url = dict["web_user"]!["img_url"] as? String
-//        u.integral = dict["web_user"]!["integral"] as? Int
-//        u.join_time = dict["web_user"]!["join_time"] as? String
-//        u.name = dict["web_user"]!["name"] as? String
-//        u.nickname = dict["web_user"]!["nickname"] as? String
-//        u.phone = dict["web_user"]!["phone"] as? String
-//        u.user_id = dict["web_user"]!["user_id"] as? Int
-        
         let userDefault = NSUserDefaults.standardUserDefaults()
         userDefault.setObject(dict, forKey: "User")
-//        dictionary = userDefault.objectForKey("NSDictionary") as! NSDictionary
-        
-        
-//        return u;
     }
 }

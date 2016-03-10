@@ -33,12 +33,12 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         
         let save = NSUserDefaults.standardUserDefaults()
         let arr = save.objectForKey("saveTags")
+        print(arr!)
         
         var index :Int
         self.goodsScrollView.contentSize = CGSizeMake((CGFloat(arr!.count)*65), 30)
         for index = 0 ; index < arr!.count ; ++index {
             let btn = UIButton(type: .System)
-//            print(arr![index]["name"])
             btn.frame = CGRectMake(CGFloat(Float(index)) * 65, 0, 65, 30)
             btn.setTitle((arr![index]["name"]) as? String, forState: UIControlState.Normal)
             btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
@@ -57,6 +57,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         return cell
     }
     
+    //MARK:点击cell后显示内容
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("12234777777")
     }

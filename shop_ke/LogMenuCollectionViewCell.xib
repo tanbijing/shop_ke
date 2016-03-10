@@ -69,6 +69,12 @@
                 <constraint firstItem="aP0-hG-4Nj" firstAttribute="top" secondItem="FnM-FX-7uW" secondAttribute="bottom" id="lCj-O1-gVm"/>
                 <constraint firstAttribute="trailing" secondItem="qYb-H1-hPI" secondAttribute="trailing" constant="8" id="vKX-Ra-2QC"/>
             </constraints>
+            <connections>
+                <outlet property="goodsDescribe" destination="aP0-hG-4Nj" id="DA7-sY-LF8"/>
+                <outlet property="goodsDiscount" destination="qYb-H1-hPI" id="RUO-Et-mCQ"/>
+                <outlet property="goodsPicture" destination="FnM-FX-7uW" id="2cg-93-fVG"/>
+                <outlet property="goodsPrice" destination="RiE-jv-AuE" id="eyq-Wi-qeY"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>
