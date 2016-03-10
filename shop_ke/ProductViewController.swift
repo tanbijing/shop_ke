@@ -14,6 +14,8 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet weak var goodsScrollView: UIScrollView!
     @IBOutlet weak var goodsCollectionView: UICollectionView!
     
+    var goods = [Goods]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,18 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
 
         //创建一个cell放入内存以便重用
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        
+        var pramas = [String : AnyObject]()
+        pramas["sort_type"] = "created_at-desc"
+        pramas["tag_id"] = 1
+        pramas["page"] = 1
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/product_list?p=1", params: pramas, onSuccess: { (successData) -> Void in
+            print("=======\(successData)")
+            self.goods = Goods.initWithGoods(successData)
+            self.goodsCollectionView.reloadData()
+            }) { (failData) -> Void in
+                print("***********")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,12 +62,19 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK: 设置cell的数量
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10;
+        return goods.count;
     }
     
     //MARK:设置cell的内容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! LogMenuCollectionViewCell
+//        print(goods[indexPath.row].image!)
+        let image = UIImage(named: "zpzk")
+        cell.goodsPicture.setWebImage(goods[indexPath.row].image!, placeHolder: image)
+        cell.goodsDescribe.text = goods[indexPath.row].content
+        cell.goodsPrice.text = String(goods[indexPath.row].price!)
+        print(String(goods[indexPath.row].price))
+        cell.goodsDiscount.text = String(goods[indexPath.row].discount!)+"折"
         return cell
     }
     
