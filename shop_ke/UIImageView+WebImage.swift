@@ -98,12 +98,13 @@ extension UIImageView {
                             let image = UIImage(data: data!)
                             if (image == nil)
                             {
-                                let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
-                                
-                                if let _:String? = jsonData["error"] as? String {
-                                    print("url fail=\(urlString)");
-                                }
-                                self.image = placeHolder
+                                return
+//                                let jsonData = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+//                                
+//                                if let _:String? = jsonData["error"] as? String {
+//                                    print("url fail=\(urlString)");
+//                                }
+//                                self.image = placeHolder
                             }
                             else
                             {

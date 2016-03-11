@@ -15,26 +15,17 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet weak var goodsCollectionView: UICollectionView!
     
     var goods = [Goods]()
+    var tagSelect = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.loadTagView()
+        self.loadProduct(1)
 
         //创建一个cell放入内存以便重用
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-        
-        var pramas = [String : AnyObject]()
-        pramas["sort_type"] = "created_at-desc"
-        pramas["tag_id"] = 1
-        pramas["page"] = 1
-        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/product_list?p=1", params: pramas, onSuccess: { (successData) -> Void in
-            print("=======\(successData)")
-            self.goods = Goods.initWithGoods(successData)
-            self.goodsCollectionView.reloadData()
-            }) { (failData) -> Void in
-                print("***********")
-        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +33,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK:加载scrollview的按钮
+    //MARK:加载标签
     func loadTagView(){
         
         let save = NSUserDefaults.standardUserDefaults()
@@ -52,13 +43,40 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         var index :Int
         self.goodsScrollView.contentSize = CGSizeMake((CGFloat(arr!.count)*65), 30)
         for index = 0 ; index < arr!.count ; ++index {
+            
             let btn = UIButton(type: .System)
             btn.frame = CGRectMake(CGFloat(Float(index)) * 65, 0, 65, 30)
             btn.setTitle((arr![index]["name"]) as? String, forState: UIControlState.Normal)
             btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
+            btn.tag = ((arr![index]["id"]) as? Int)!
+            btn.addTarget(self, action: Selector("tagClick:"), forControlEvents: .TouchUpInside)
             self.goodsScrollView.addSubview(btn)
         }
     }
+    
+    //MARK:点击标签
+    func tagClick(btn : UIButton){
+        print(btn.tag)
+        self.loadProduct(btn.tag)
+    }
+    
+    //MARK:加载商品
+    func loadProduct(tagid : Int){
+        var pramas = [String : AnyObject]()
+        pramas["sort_type"] = "created_at-desc"
+        pramas["tag_id"] = tagid
+        pramas["page"] = 1
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/product_list", params: pramas, onSuccess: { (successData) -> Void in
+            print("=======\(successData)")
+            self.goods.removeAll()
+            self.goods = Goods.initWithGoods(successData)
+            self.goodsCollectionView.reloadData()
+            }) { (failData) -> Void in
+                print("***********")
+        }
+    }
+    
+
     
     //MARK: 设置cell的数量
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,13 +85,13 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK:设置cell的内容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! LogMenuCollectionViewCell
-//        print(goods[indexPath.row].image!)
+        
         let image = UIImage(named: "zpzk")
         cell.goodsPicture.setWebImage(goods[indexPath.row].image!, placeHolder: image)
         cell.goodsDescribe.text = goods[indexPath.row].content
-        cell.goodsPrice.text = String(goods[indexPath.row].price!)
-        print(String(goods[indexPath.row].price))
+        cell.goodsPrice.text = "￥" + String(goods[indexPath.row].price!)
         cell.goodsDiscount.text = String(goods[indexPath.row].discount!)+"折"
         return cell
     }
