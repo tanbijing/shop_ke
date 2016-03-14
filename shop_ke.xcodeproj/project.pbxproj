@@ -16,6 +16,7 @@
 		043EA9C51C8AE73E00FFCE5D /* LogMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043EA9C31C8AE73E00FFCE5D /* LogMenuCollectionViewCell.xib */; };
 		0447AD021C846D2B00287A32 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447AD001C846D2B00287A32 /* loginViewController.swift */; };
 		0447AD031C846D2B00287A32 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0447AD011C846D2B00287A32 /* loginViewController.xib */; };
+		044FF04C1C96C21C009A7E75 /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FF04B1C96C21C009A7E75 /* LeftMenu.swift */; };
 		045F79B41C8E9FB600171D9C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F79B31C8E9FB600171D9C /* Tag.swift */; };
 		0479DE7E1C86863200101F2D /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479DE7D1C86863200101F2D /* HttpManager.swift */; };
 		04B9C2FC1C843BE000952A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9C2FB1C843BE000952A40 /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		043EA9C31C8AE73E00FFCE5D /* LogMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		0447AD001C846D2B00287A32 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		0447AD011C846D2B00287A32 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		044FF04B1C96C21C009A7E75 /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
 		045F79B31C8E9FB600171D9C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0479DE7B1C859AEC00101F2D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0479DE7D1C86863200101F2D /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				042AA8611C86ED23005783AC /* User.swift */,
 				045F79B31C8E9FB600171D9C /* Tag.swift */,
+				044FF04B1C96C21C009A7E75 /* LeftMenu.swift */,
 				0479DE7D1C86863200101F2D /* HttpManager.swift */,
 				04D62E341C86CB5E00E52437 /* Activity.swift */,
 				043966FE1C91162900CB14E1 /* Goods.swift */,
@@ -440,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043EA9C41C8AE73E00FFCE5D /* LogMenuCollectionViewCell.swift in Sources */,
+				044FF04C1C96C21C009A7E75 /* LeftMenu.swift in Sources */,
 				04B9C32C1C84437500952A40 /* MeViewController.swift in Sources */,
 				043966FF1C91162900CB14E1 /* Goods.swift in Sources */,
 				04D62E391C87DC9400E52437 /* UIImageView+WebImage.swift in Sources */,

@@ -26,6 +26,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         //创建一个cell放入内存以便重用
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
+        //下拉刷新
         refreshControl.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新数据")
         refreshControl.tintColor = UIColor.redColor()
@@ -45,7 +46,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         print(arr!)
         
         var index :Int
-        goodsScrollView.contentSize = CGSizeMake((CGFloat(arr!.count)*65), 30)
+        goodsScrollView.contentSize = CGSizeMake(CGFloat(arr!.count)*65, 30)
         for index = 0 ; index < arr!.count ; ++index {
             
             let btn = UIButton(type: .System)

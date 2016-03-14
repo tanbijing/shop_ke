@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogMenuViewController" customModule="shop_ke" customModuleProvider="target">
             <connections>
                 <outlet property="logCollectionView" destination="IJl-r0-cad" id="Fd9-AY-fFD"/>
+                <outlet property="logScrollView" destination="Vjn-Xv-GKN" id="zYS-Lz-VEc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-
+    //MARK:加载标签
     func loadTags(){
         //从接口获取标签保存至本地
         let params = [String : AnyObject]()
@@ -24,9 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    //MARK:加载左侧菜单栏
+    func loadLeftMenu(){
+        let params = [String : AnyObject]()
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/tag_and_sub_tag", params: params, onSuccess: { (successData) -> Void in
+            print(successData)
+            LeftMenu.loadLeftMenu(successData as! NSArray)
+            }) { (failData) -> Void in
+                print("保存左侧菜单栏失败")
+        }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        self.loadTags()
+        loadTags()
+        loadLeftMenu()
         return true
     }
 
