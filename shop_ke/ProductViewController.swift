@@ -15,17 +15,21 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet weak var goodsCollectionView: UICollectionView!
     
     var goods = [Goods]()
-    var tagSelect = UIButton()
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadTagView()
-        self.loadProduct(1)
+        loadTagView()
+        loadProduct(1)
 
         //创建一个cell放入内存以便重用
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-
+        
+        refreshControl.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新数据")
+        refreshControl.tintColor = UIColor.redColor()
+        goodsCollectionView.addSubview(refreshControl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +45,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         print(arr!)
         
         var index :Int
-        self.goodsScrollView.contentSize = CGSizeMake((CGFloat(arr!.count)*65), 30)
+        goodsScrollView.contentSize = CGSizeMake((CGFloat(arr!.count)*65), 30)
         for index = 0 ; index < arr!.count ; ++index {
             
             let btn = UIButton(type: .System)
@@ -50,14 +54,14 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
             btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
             btn.tag = ((arr![index]["id"]) as? Int)!
             btn.addTarget(self, action: Selector("tagClick:"), forControlEvents: .TouchUpInside)
-            self.goodsScrollView.addSubview(btn)
+            goodsScrollView.addSubview(btn)
         }
     }
     
     //MARK:点击标签
     func tagClick(btn : UIButton){
         print(btn.tag)
-        self.loadProduct(btn.tag)
+        loadProduct(btn.tag)
     }
     
     //MARK:加载商品
@@ -68,7 +72,6 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         pramas["page"] = 1
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/product_list", params: pramas, onSuccess: { (successData) -> Void in
             print("=======\(successData)")
-            self.goods.removeAll()
             self.goods = Goods.initWithGoods(successData)
             self.goodsCollectionView.reloadData()
             }) { (failData) -> Void in
@@ -76,6 +79,18 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         }
     }
     
+    
+    
+    //MARK:上拉刷新
+//    func onPullToFresh(){
+//
+//    }
+    
+    //MARK:下拉刷新
+    func refreshData(){
+        self.goodsCollectionView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
 
     
     //MARK: 设置cell的数量
