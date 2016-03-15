@@ -62,7 +62,7 @@
                 </scrollView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="I3m-UY-zh3">
                     <rect key="frame" x="0.0" y="90" width="375" height="577"/>
-                    <color key="backgroundColor" red="0.96507300250000005" green="1" blue="0.50862033780000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="375" id="KDP-JU-Oax"/>
                         <constraint firstAttribute="width" secondItem="I3m-UY-zh3" secondAttribute="height" multiplier="375:577" id="oGp-i3-NLf"/>

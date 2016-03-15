@@ -24,29 +24,17 @@ class FileUtility: NSObject {
         return image.writeToFile(path, atomically: true)
     }
     
-    class func imageDataFromPath(path:String)->AnyObject
+    class func imageDataFromPath(path:String)->UIImage?
     {
         let exist = NSFileManager.defaultManager().fileExistsAtPath(path)
-        if exist
-        {
-            //var urlStr = NSURL.fileURLWithPath(path)
-            _ = NSData(contentsOfFile: path);
-            //var img:UIImage? = UIImage(data:data!)
-            //return img ?? NSNull()
-            let img = UIImage(contentsOfFile: path)
-            
+        if exist {
             let url:NSURL? = NSURL.fileURLWithPath(path)
-            let dd = NSFileManager.defaultManager().contentsAtPath(url!.path!)
-            _ = UIImage(data:dd!)
-            
-            if img != nil {
-                return img!
-            } else {
-                return NSNull()
+            if let dd = NSFileManager.defaultManager().contentsAtPath(url!.path!) {
+                return UIImage(data:dd)
             }
         }
         
-        return NSNull()
+        return nil
     }
     
     

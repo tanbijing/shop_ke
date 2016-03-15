@@ -14,4 +14,11 @@ class LeftMenu{
         let leftMenu = NSUserDefaults.standardUserDefaults()
         leftMenu.setObject(arr, forKey: "leftMenu")
     }
+    
+    //获取左侧菜单栏标签
+    static func getMenu() -> (NSArray){
+        let menu = NSUserDefaults.standardUserDefaults()
+        let arr = menu.objectForKey("leftMenu") as? NSArray
+        return arr!
+    }
 }

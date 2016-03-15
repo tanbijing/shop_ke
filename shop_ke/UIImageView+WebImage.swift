@@ -15,10 +15,8 @@ extension UIButton {
         let url = NSURL(string: urlString)
         let cacheFilename = url!.lastPathComponent
         let cachePath = FileUtility.cachePath(cacheFilename!)
-        let image : AnyObject = FileUtility.imageDataFromPath(cachePath)
-        if image as! NSObject != NSNull()
-        {
-            self.setImage(image as? UIImage, forState: forState)
+        if let image = FileUtility.imageDataFromPath(cachePath) {
+            self.setImage(image, forState: forState)
         }
         else
         {
@@ -72,13 +70,9 @@ extension UIImageView {
         let url = NSURL(string: urlString)
         let cacheFilename = url!.lastPathComponent
         let cachePath = FileUtility.cachePath(cacheFilename!)
-        let image : AnyObject = FileUtility.imageDataFromPath(cachePath)
-        if image as! NSObject != NSNull()
-        {
-            self.image = image as? UIImage
-        }
-        else
-        {
+        if let image  = FileUtility.imageDataFromPath(cachePath)         {
+            self.image = image
+        } else  {
             let req = NSURLRequest(URL: url!)
             let queue = NSOperationQueue();
             NSURLConnection.sendAsynchronousRequest(req, queue: queue, completionHandler: { response, data, error in
