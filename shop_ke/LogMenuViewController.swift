@@ -22,6 +22,9 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
         
         //创建一个cell放入内存以便重用
         logCollectionView.registerNib(UINib(nibName: "leftMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        //注册header
+        logCollectionView.registerClass(HeaderReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        
         //进入分类菜单默认是第一个分类
         collection = menuArray[0] as? [String : AnyObject]
     }
@@ -37,15 +40,15 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
         logScrollView.contentSize = CGSizeMake(93,CGFloat(menuArray.count) * 60)
         for index in 0..<menuArray.count {
             let btn = UIButton(type: .System)
-            if index == 0 {
-                btn.tintColor = UIColor.redColor()
-                btn.backgroundColor = UIColor.groupTableViewBackgroundColor()
-            }
             btn.frame = CGRectMake(0, CGFloat(index) * 60, 93, 60)
             btn.setTitle(menuArray[index]["name"] as? String, forState: UIControlState.Normal)
             btn.tintColor = UIColor.blackColor()
             btn.tag = index
             btn.addTarget(self, action: Selector("clickLeftMenu:"), forControlEvents: .TouchUpInside)
+            if index == 0 {
+                btn.tintColor = UIColor.redColor()
+                btn.backgroundColor = UIColor.groupTableViewBackgroundColor()
+            }
             logScrollView.addSubview(btn)
         }
     }
@@ -82,7 +85,6 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
                 let groupKey = gps[indexPath.row]
                 if let urlString = groupKey["img_url"] as? String,
                     let nameString = groupKey["sub_tag_name"] as? String {
-//                    print("(\(indexPath.section),\(indexPath.row)): \(urlString)")
                     let image = UIImage(named: "zpzk")
                     cell.menuImage.setWebImage(urlString, placeHolder: image)
                     cell.menuName.text = nameString
@@ -90,6 +92,21 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
             }
         }
         return cell
+    }
+    
+    
+    //MARK:分组头视图设置
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as! HeaderReusableView
+        if (kind == UICollectionElementKindSectionHeader){
+            header.headerLb.text=(collection!["sub_tag_group"]![indexPath.section]["group_name"] as?String)!
+        }
+        return header
+    }
+    
+    //MARK:分组头视图尺寸
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeMake(282, 20)
     }
     
     //MARK:有多少组
@@ -101,6 +118,7 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
             return 0
         }
     }
+    
     
     //MARK:cell的数量
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

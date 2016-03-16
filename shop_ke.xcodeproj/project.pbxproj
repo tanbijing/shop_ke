@@ -36,6 +36,7 @@
 		04BF504A1C85696C00D0632C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF50481C85696C00D0632C /* RegisterViewController.xib */; };
 		04BF504D1C857BBF00D0632C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BF504B1C857BBF00D0632C /* SettingViewController.swift */; };
 		04BF504E1C857BBF00D0632C /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BF504C1C857BBF00D0632C /* SettingViewController.xib */; };
+		04C195E41C99343B00BD30C6 /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C195E31C99343B00BD30C6 /* HeaderReusableView.swift */; };
 		04D62E351C86CB5E00E52437 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D62E341C86CB5E00E52437 /* Activity.swift */; };
 		04D62E391C87DC9400E52437 /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D62E381C87DC9400E52437 /* UIImageView+WebImage.swift */; };
 		04D62E3B1C87DD1B00E52437 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D62E3A1C87DD1B00E52437 /* FileUtility.swift */; };
@@ -96,6 +97,7 @@
 		04BF50481C85696C00D0632C /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		04BF504B1C857BBF00D0632C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04BF504C1C857BBF00D0632C /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		04C195E31C99343B00BD30C6 /* HeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		04D62E341C86CB5E00E52437 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		04D62E381C87DC9400E52437 /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		04D62E3A1C87DD1B00E52437 /* FileUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				043EA9C31C8AE73E00FFCE5D /* LogMenuCollectionViewCell.xib */,
 				0451FFC71C97A5ED00569B81 /* leftMenuCollectionViewCell.swift */,
 				0451FFC81C97A5ED00569B81 /* leftMenuCollectionViewCell.xib */,
+				04C195E31C99343B00BD30C6 /* HeaderReusableView.swift */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				04B9C32E1C84439D00952A40 /* ActivityViewController.swift in Sources */,
 				04BF50491C85696C00D0632C /* RegisterViewController.swift in Sources */,
 				04B9C2FC1C843BE000952A40 /* AppDelegate.swift in Sources */,
+				04C195E41C99343B00BD30C6 /* HeaderReusableView.swift in Sources */,
 				043EA9BB1C8AB80A00FFCE5D /* ProductViewController.swift in Sources */,
 				042AA8621C86ED23005783AC /* User.swift in Sources */,
 				04BF504D1C857BBF00D0632C /* SettingViewController.swift in Sources */,
