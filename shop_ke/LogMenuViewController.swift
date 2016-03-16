@@ -98,7 +98,7 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
     //MARK:分组头视图设置
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as! HeaderReusableView
-        if (kind == UICollectionElementKindSectionHeader){
+        if kind == UICollectionElementKindSectionHeader {
             header.headerLb.text=(collection!["sub_tag_group"]![indexPath.section]["group_name"] as?String)!
         }
         return header

@@ -16,12 +16,13 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     var goods = [Goods]()
     var refreshControl = UIRefreshControl()
+    let arr = Tag.getTags()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadTagView()
-        loadProduct(1)
+        loadProduct(6)
 
         //创建一个cell放入内存以便重用
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
@@ -39,34 +40,43 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     }
     
     //MARK:加载标签
-    func loadTagView(){
-        
-        let save = NSUserDefaults.standardUserDefaults()
-        let arr = save.objectForKey("saveTags")
-        print(arr!)
-        
+    func loadTagView() {
         var index :Int
-        goodsScrollView.contentSize = CGSizeMake(CGFloat(arr!.count)*65, 30)
-        for index = 0 ; index < arr!.count ; ++index {
-            
+        goodsScrollView.contentSize = CGSizeMake(CGFloat(arr.count)*65, 30)
+        for index = 0 ; index < arr.count ; ++index {
             let btn = UIButton(type: .System)
             btn.frame = CGRectMake(CGFloat(Float(index)) * 65, 0, 65, 30)
-            btn.setTitle((arr![index]["name"]) as? String, forState: UIControlState.Normal)
-            btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
-            btn.tag = ((arr![index]["id"]) as? Int)!
+            btn.setTitle((arr[index]["name"]) as? String, forState: UIControlState.Normal)
+//            btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
+            btn.tintColor = UIColor.blackColor()
+            btn.tag = index
             btn.addTarget(self, action: Selector("tagClick:"), forControlEvents: .TouchUpInside)
+            //使第一个颜色变红
+            if index == 0 {
+                btn.tintColor = UIColor.redColor()
+            }
             goodsScrollView.addSubview(btn)
         }
     }
     
     //MARK:点击标签
-    func tagClick(btn : UIButton){
+    func tagClick(btn : UIButton) {
         print(btn.tag)
-        loadProduct(btn.tag)
+        //点击标签 根据标签id加载商品
+        loadProduct(((arr[btn.tag]["id"]) as? Int)!)
+        print(((arr[btn.tag]["id"]) as? Int)!)
+        //点击标签变色
+        for (index,subviews) in goodsScrollView.subviews.enumerate() {
+            if index == btn.tag {
+                subviews.tintColor = UIColor.redColor()
+            }else {
+                subviews.tintColor = UIColor.blackColor()
+            }
+        }
     }
     
     //MARK:加载商品
-    func loadProduct(tagid : Int){
+    func loadProduct(tagid : Int) {
         var pramas = [String : AnyObject]()
         pramas["sort_type"] = "created_at-desc"
         pramas["tag_id"] = tagid
@@ -80,19 +90,16 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         }
     }
     
-    
-    
     //MARK:上拉刷新
 //    func onPullToFresh(){
 //
 //    }
     
     //MARK:下拉刷新
-    func refreshData(){
+    func refreshData() {
         self.goodsCollectionView.reloadData()
         self.refreshControl.endRefreshing()
     }
-
     
     //MARK: 设置cell的数量
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -16,4 +16,10 @@ class Tag {
         save.setObject(arr, forKey: "saveTags")
     }
     
+    //获取标签
+    static func getTags() ->NSArray{
+        let tags = NSUserDefaults.standardUserDefaults()
+        let arr = tags.objectForKey("saveTags") as? NSArray
+        return arr!
+    }
 }
