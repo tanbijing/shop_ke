@@ -24,6 +24,17 @@ class ActivityViewController: UIViewController,UIScrollViewDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        bannerTime?.invalidate()
+        bannerTime = nil;
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,6 +99,10 @@ class ActivityViewController: UIViewController,UIScrollViewDelegate {
             pic_index += 1
         }
         self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width, 0), animated: false)
+        if ((bannerTime) != nil) {
+            bannerTime!.invalidate()
+            bannerTime = nil
+        }
         bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
     }
     //bunner滚动定时器
