@@ -17,6 +17,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     var goods = [Goods]()
     var refreshControl = UIRefreshControl()
     let arr = Tag.getTags()
+    var detail = Detail()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +122,28 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK:点击cell后显示内容
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("12234777777")
+        //根据商品id显示商品详情
+        var params = [String: AnyObject]()
+        params["id"] = goods[indexPath.row].id
+        
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/product_detail", params: params, onSuccess: { (successData) -> Void in
+            //获取点击的商品的数据
+            self.detail = Detail.setDetail(successData)
+            print(successData)
+            let selectDetail = ProductDetailViewController()
+
+            let image = UIImage(named: "zpzk")
+            selectDetail.detailImage.setWebImage(self.detail.detailImage!, placeHolder: image)
+            selectDetail.detailIntroduction.text = self.detail.detailIntroduction!
+            selectDetail.discountPrice.text = "￥"+String(self.detail.discountPrice!)
+            selectDetail.originalPrice.text = "原价:"+String(self.detail.originalPrice!)
+            selectDetail.discount.text = self.detail.discount!+"折"
+            selectDetail.detailUrl = self.detail.detailUrl!
+            self.presentViewController(selectDetail, animated: true, completion: nil)
+            }) { (failData) -> Void in
+                print("获取失败！")
+        }
+
     }
     
     //MARK: 跳转到分类

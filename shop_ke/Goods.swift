@@ -13,6 +13,7 @@ class Goods {
     var content : String?
     var discount : Double?
     var price :Double?
+    var id : Int?
     
     
     static func initWithGoods(data:AnyObject?)->[Goods] {
@@ -26,6 +27,7 @@ class Goods {
                 good.content = arr_data["content"] as? String
                 good.discount = arr_data["discount"] as? Double
                 good.price = arr_data["price"] as? Double
+                good.id = arr_data["id"] as? Int
                 goods.append(good)
             }
         }

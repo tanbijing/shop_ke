@@ -20,6 +20,9 @@
 		0451FFC91C97A5ED00569B81 /* leftMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FFC71C97A5ED00569B81 /* leftMenuCollectionViewCell.swift */; };
 		0451FFCA1C97A5ED00569B81 /* leftMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451FFC81C97A5ED00569B81 /* leftMenuCollectionViewCell.xib */; };
 		045F79B41C8E9FB600171D9C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F79B31C8E9FB600171D9C /* Tag.swift */; };
+		04632FBF1C9A555700B26D30 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04632FBD1C9A555700B26D30 /* ProductDetailViewController.swift */; };
+		04632FC01C9A555700B26D30 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04632FBE1C9A555700B26D30 /* ProductDetailViewController.xib */; };
+		04632FC21C9A962A00B26D30 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04632FC11C9A962A00B26D30 /* Detail.swift */; };
 		0479DE7E1C86863200101F2D /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479DE7D1C86863200101F2D /* HttpManager.swift */; };
 		04B9C2FC1C843BE000952A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9C2FB1C843BE000952A40 /* AppDelegate.swift */; };
 		04B9C3011C843BE000952A40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B9C2FF1C843BE000952A40 /* Main.storyboard */; };
@@ -74,6 +77,9 @@
 		0451FFC71C97A5ED00569B81 /* leftMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leftMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0451FFC81C97A5ED00569B81 /* leftMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		045F79B31C8E9FB600171D9C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		04632FBD1C9A555700B26D30 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		04632FBE1C9A555700B26D30 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
+		04632FC11C9A962A00B26D30 /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		0479DE7B1C859AEC00101F2D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0479DE7D1C86863200101F2D /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		04B9C2F81C843BE000952A40 /* shop_ke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shop_ke.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +159,7 @@
 				0479DE7D1C86863200101F2D /* HttpManager.swift */,
 				04D62E341C86CB5E00E52437 /* Activity.swift */,
 				043966FE1C91162900CB14E1 /* Goods.swift */,
+				04632FC11C9A962A00B26D30 /* Detail.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -198,6 +205,8 @@
 				04B9C3331C84440C00952A40 /* ActivityViewController.xib */,
 				043EA9BA1C8AB80A00FFCE5D /* ProductViewController.swift */,
 				04B9C3351C84441D00952A40 /* ProductViewController.xib */,
+				04632FBD1C9A555700B26D30 /* ProductDetailViewController.swift */,
+				04632FBE1C9A555700B26D30 /* ProductDetailViewController.xib */,
 				043EA9BE1C8AC14D00FFCE5D /* LogMenuViewController.swift */,
 				043EA9BF1C8AC14D00FFCE5D /* LogMenuViewController.xib */,
 				04B9C2FF1C843BE000952A40 /* Main.storyboard */,
@@ -368,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04632FC01C9A555700B26D30 /* ProductDetailViewController.xib in Resources */,
 				04B9C3061C843BE000952A40 /* LaunchScreen.storyboard in Resources */,
 				04BF504E1C857BBF00D0632C /* SettingViewController.xib in Resources */,
 				0451FFCA1C97A5ED00569B81 /* leftMenuCollectionViewCell.xib in Resources */,
@@ -460,6 +470,7 @@
 				04D62E3B1C87DD1B00E52437 /* FileUtility.swift in Sources */,
 				0451FFC91C97A5ED00569B81 /* leftMenuCollectionViewCell.swift in Sources */,
 				04B9C32E1C84439D00952A40 /* ActivityViewController.swift in Sources */,
+				04632FC21C9A962A00B26D30 /* Detail.swift in Sources */,
 				04BF50491C85696C00D0632C /* RegisterViewController.swift in Sources */,
 				04B9C2FC1C843BE000952A40 /* AppDelegate.swift in Sources */,
 				04C195E41C99343B00BD30C6 /* HeaderReusableView.swift in Sources */,
@@ -469,6 +480,7 @@
 				04D62E351C86CB5E00E52437 /* Activity.swift in Sources */,
 				0447AD021C846D2B00287A32 /* loginViewController.swift in Sources */,
 				045F79B41C8E9FB600171D9C /* Tag.swift in Sources */,
+				04632FBF1C9A555700B26D30 /* ProductDetailViewController.swift in Sources */,
 				043EA9C01C8AC14D00FFCE5D /* LogMenuViewController.swift in Sources */,
 				0479DE7E1C86863200101F2D /* HttpManager.swift in Sources */,
 			);

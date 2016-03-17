@@ -15,8 +15,8 @@ class HeaderReusableView: UICollectionReusableView  {
         super.init(frame: frame)
         headerLb=UILabel()
         headerLb.frame=CGRectMake(10, 0, 262, 20)
-//        headerLb.backgroundColor=UIColor.yellowColor()
-        headerLb.textColor = UIColor.redColor()
+        headerLb.textColor = UIColor.blueColor()
+        headerLb.textAlignment = NSTextAlignment.Center
         self.addSubview(headerLb)
     }
     required init?(coder aDecoder: NSCoder) {

@@ -134,7 +134,7 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK:点击cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("昂君")
+        print("分类子菜单")
     }
     
 }

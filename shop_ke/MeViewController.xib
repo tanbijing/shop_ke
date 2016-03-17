@@ -57,14 +57,14 @@
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="w_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FrT-nr-J8w">
                             <rect key="frame" x="20" y="20" width="60" height="60"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="PGw-Nv-r1x"/>
                                 <constraint firstAttribute="height" constant="60" id="fB0-i5-k9d"/>
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="KE4-f3-Ges" firstAttribute="top" secondItem="Dhz-Ab-hKh" secondAttribute="top" constant="30" id="GY4-h6-HOe"/>
                         <constraint firstItem="FrT-nr-J8w" firstAttribute="leading" secondItem="Dhz-Ab-hKh" secondAttribute="leading" constant="20" id="Pl3-aL-bJP"/>
@@ -75,7 +75,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNM-cn-NtK">
                     <rect key="frame" x="20" y="250" width="335" height="30"/>
-                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6Wf-0D-LxU"/>
                         <constraint firstAttribute="width" secondItem="QNM-cn-NtK" secondAttribute="height" multiplier="67:6" id="bZC-k5-0dv"/>
@@ -102,7 +102,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="QNM-cn-NtK" firstAttribute="leading" secondItem="KcZ-GH-6cN" secondAttribute="leading" constant="20" id="1vc-Om-P9h"/>
                 <constraint firstItem="4s8-1v-gmm" firstAttribute="top" secondItem="KcZ-GH-6cN" secondAttribute="top" id="2Zq-Qo-bq3"/>
@@ -119,7 +119,7 @@
                 <constraint firstItem="4s8-1v-gmm" firstAttribute="leading" secondItem="KcZ-GH-6cN" secondAttribute="leading" id="voN-qS-7Ph"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="273.5" y="-38.5"/>
+            <point key="canvasLocation" x="198.5" y="-126.5"/>
         </view>
     </objects>
     <resources>
