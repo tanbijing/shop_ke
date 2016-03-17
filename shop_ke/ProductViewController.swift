@@ -14,14 +14,22 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     @IBOutlet weak var goodsScrollView: UIScrollView!
     @IBOutlet weak var goodsCollectionView: UICollectionView!
     
-    var goods = [Goods]()
-    var refreshControl = UIRefreshControl()
-    let arr = Tag.getTags()
-    var detail = Detail()
+    var goods = [Goods]() //商品数据
+    var refreshControl = UIRefreshControl() //下拉刷新
+    let arr = Tag.getTags() //标签数据
+    var detail = Detail() //商品详情数据
+    var activityIndicatorView = UIActivityIndicatorView() //活动指示器
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //活动指示器
+        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityIndicatorView.frame = CGRectMake(self.view.frame.size.width/2-50, self.view.frame.size.height/2-50, 100, 100)
+        activityIndicatorView.hidden = false
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.color = UIColor.blackColor()
+        self.view.addSubview(activityIndicatorView)
+
         loadTagView()
         loadProduct(6)
 
@@ -33,6 +41,7 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新数据")
         refreshControl.tintColor = UIColor.redColor()
         goodsCollectionView.addSubview(refreshControl)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,14 +87,17 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK:加载商品
     func loadProduct(tagid : Int) {
+        activityIndicatorView.startAnimating()
+        
         var pramas = [String : AnyObject]()
         pramas["sort_type"] = "created_at-desc"
         pramas["tag_id"] = tagid
         pramas["page"] = 1
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/product_list", params: pramas, onSuccess: { (successData) -> Void in
-            print("=======\(successData)")
-            self.goods = Goods.initWithGoods(successData)
-            self.goodsCollectionView.reloadData()
+                print("=======\(successData)")
+                self.goods = Goods.initWithGoods(successData)
+                self.goodsCollectionView.reloadData()
+                self.activityIndicatorView.stopAnimating()
             }) { (failData) -> Void in
                 print("***********")
         }
