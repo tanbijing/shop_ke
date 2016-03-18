@@ -9,25 +9,29 @@
 import UIKit
 import Alamofire
 
-class ActivityViewController: UIViewController,UIScrollViewDelegate {
+class ActivityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var bannerSv: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var activityTableView: UITableView!
     
     var activities:[Activity] = []
     var showBannerActivities:[Activity] = []
     var bannerTime:NSTimer? = nil
+    var shops = [ActivityShop]()  //商店数据
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.tintColor = UIColor.redColor()
         loadData()
         
+        activityTableView.registerNib(UINib(nibName: "ActivityTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -75,8 +79,13 @@ class ActivityViewController: UIViewController,UIScrollViewDelegate {
         params["num"] = "4"
         params["pa"] = "pa"
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
+                print(successData)
                 self.activities = Activity.saveDataToModel(successData["activities"])
                 self.performSelector(Selector("loadBanner"), onThread: NSThread.mainThread(), withObject:self.activities, waitUntilDone: true)
+            
+                self.shops = ActivityShop.getActivityShop(successData) //存商品数据
+                self.activityTableView.reloadData() //渲染表格
+                print(self.shops)
             }) { (failData) -> Void in
                 print(failData)
         }
@@ -99,6 +108,7 @@ class ActivityViewController: UIViewController,UIScrollViewDelegate {
             pic_index += 1
         }
         self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width, 0), animated: false)
+        //判断定时器是否释放
         if ((bannerTime) != nil) {
             bannerTime!.invalidate()
             bannerTime = nil
@@ -147,15 +157,27 @@ class ActivityViewController: UIViewController,UIScrollViewDelegate {
         self.showBannerActivities.append(self.activities[lastIndex])
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //设置cell的行数
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shops.count
     }
-    */
+    
+    //设置cell的内容
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ActivityTableViewCell
+        let image = UIImage(named: "zpzk")
+        let shop = shops[indexPath.row]
+        cell.shopImage.setWebImage(shop.image_url, placeHolder: image)
+        cell.shopDiscount.text = String(shop.discount)+"折起"
+        print(shop.discount)
+        cell.shopName.text = shop.name
+        print(shop.name)
+        return cell
+    }
+    
+    //cell行高
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 170
+    }
 
 }

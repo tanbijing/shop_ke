@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityViewController" customModule="shop_ke" customModuleProvider="target">
             <connections>
+                <outlet property="activityTableView" destination="h6d-fz-6rE" id="iKR-3M-Goz"/>
                 <outlet property="bannerSv" destination="Tx0-Xv-9CH" id="Bc2-x6-Cy0"/>
                 <outlet property="pageControl" destination="iXT-MF-wFp" id="JdY-1F-gxL"/>
                 <outlet property="view" destination="rpJ-IA-cti" id="Bbk-3y-TwI"/>
@@ -48,35 +49,45 @@
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="iXT-MF-wFp">
                     <rect key="frame" x="168" y="143" width="39" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="0Qs-sc-fFA"/>
+                        <constraint firstAttribute="width" secondItem="iXT-MF-wFp" secondAttribute="height" multiplier="39:37" id="IRB-5s-KGy"/>
+                    </constraints>
                     <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="currentPageIndicatorTintColor" red="0.96862745100000003" green="0.35686274509999999" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-9r-QfZ">
-                    <rect key="frame" x="0.0" y="186" width="375" height="81"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="81" id="SKX-cK-18D"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-fz-6rE">
-                    <rect key="frame" x="0.0" y="267" width="375" height="400"/>
+                    <rect key="frame" x="0.0" y="216" width="375" height="461"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="KoX-9A-ptU"/>
+                        <outlet property="delegate" destination="-1" id="NpW-N1-Kdr"/>
+                    </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天早10点或晚8点持续跟新" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmN-2J-ZTZ">
+                    <rect key="frame" x="0.0" y="186" width="375" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Oqs-ml-6tj"/>
+                        <constraint firstAttribute="width" secondItem="kmN-2J-ZTZ" secondAttribute="height" multiplier="25:2" id="eic-P7-lDC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dKP-9r-QfZ" secondAttribute="trailing" id="2rq-tL-TAS"/>
-                <constraint firstItem="dKP-9r-QfZ" firstAttribute="top" secondItem="iXT-MF-wFp" secondAttribute="bottom" constant="6" id="4f2-4x-Lsq"/>
+                <constraint firstItem="kmN-2J-ZTZ" firstAttribute="top" secondItem="Tx0-Xv-9CH" secondAttribute="bottom" id="1mW-0d-cCv"/>
                 <constraint firstItem="bV9-1d-p4c" firstAttribute="top" secondItem="rpJ-IA-cti" secondAttribute="top" id="5T5-Rv-f6s"/>
-                <constraint firstAttribute="trailing" secondItem="h6d-fz-6rE" secondAttribute="trailing" id="D6n-Kj-mF8"/>
                 <constraint firstItem="Tx0-Xv-9CH" firstAttribute="top" secondItem="bV9-1d-p4c" secondAttribute="bottom" id="DSL-oI-Khg"/>
-                <constraint firstAttribute="bottom" secondItem="h6d-fz-6rE" secondAttribute="bottom" id="JVp-R6-76d"/>
-                <constraint firstItem="h6d-fz-6rE" firstAttribute="top" secondItem="dKP-9r-QfZ" secondAttribute="bottom" id="K23-0R-NA2"/>
-                <constraint firstItem="dKP-9r-QfZ" firstAttribute="top" secondItem="Tx0-Xv-9CH" secondAttribute="bottom" id="Rat-fe-Y02"/>
-                <constraint firstItem="dKP-9r-QfZ" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="V6t-gh-6De"/>
+                <constraint firstItem="iXT-MF-wFp" firstAttribute="top" secondItem="bV9-1d-p4c" secondAttribute="bottom" constant="83" id="Hu3-z1-Nvq"/>
+                <constraint firstItem="h6d-fz-6rE" firstAttribute="top" secondItem="kmN-2J-ZTZ" secondAttribute="bottom" id="NJ8-3X-oG2"/>
+                <constraint firstAttribute="trailing" secondItem="h6d-fz-6rE" secondAttribute="trailing" id="U0O-iB-mud"/>
+                <constraint firstItem="iXT-MF-wFp" firstAttribute="centerX" secondItem="rpJ-IA-cti" secondAttribute="centerX" id="dJi-rM-Rnh"/>
+                <constraint firstItem="kmN-2J-ZTZ" firstAttribute="centerX" secondItem="rpJ-IA-cti" secondAttribute="centerX" id="drg-hh-OxM"/>
                 <constraint firstItem="Tx0-Xv-9CH" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="dvS-Q5-g0Q"/>
-                <constraint firstItem="h6d-fz-6rE" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="lZe-Aq-XpZ"/>
-                <constraint firstItem="iXT-MF-wFp" firstAttribute="centerX" secondItem="rpJ-IA-cti" secondAttribute="centerX" id="wbT-IF-ys3"/>
+                <constraint firstItem="h6d-fz-6rE" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="k8E-bE-gdQ"/>
+                <constraint firstAttribute="bottom" secondItem="h6d-fz-6rE" secondAttribute="bottom" constant="-10" id="v4a-VV-lDN"/>
                 <constraint firstAttribute="trailing" secondItem="Tx0-Xv-9CH" secondAttribute="trailing" constant="-1" id="x0i-Xd-nGI"/>
                 <constraint firstItem="bV9-1d-p4c" firstAttribute="leading" secondItem="rpJ-IA-cti" secondAttribute="leading" id="xzy-dl-GNE"/>
                 <constraint firstAttribute="trailing" secondItem="bV9-1d-p4c" secondAttribute="trailing" id="zD6-C9-eS5"/>

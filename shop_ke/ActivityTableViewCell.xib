@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="KGk-i7-Jjw" customClass="ActivityTableViewCell" customModule="shop_ke" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COk-Hc-X1R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="Abe-jz-Uxm"/>
+                            <constraint firstAttribute="width" secondItem="COk-Hc-X1R" secondAttribute="height" multiplier="75:26" id="D3Q-rK-shD"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUn-hB-OCX">
+                        <rect key="frame" x="0.0" y="130" width="375" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优衣库折扣专卖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajW-PP-1nI">
+                                <rect key="frame" x="20" y="0.0" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ajW-PP-1nI" secondAttribute="height" multiplier="20:3" id="7RX-bi-XE2"/>
+                                    <constraint firstAttribute="height" constant="30" id="btc-kJ-qfs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.8折起" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgd-FG-VeG">
+                                <rect key="frame" x="275" y="0.0" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5yL-XM-wfd"/>
+                                    <constraint firstAttribute="width" secondItem="tgd-FG-VeG" secondAttribute="height" multiplier="10:3" id="rv5-yn-HWB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.074093134120000001" blue="0.19144769110000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tgd-FG-VeG" secondAttribute="trailing" id="dhl-pa-DoD"/>
+                            <constraint firstItem="ajW-PP-1nI" firstAttribute="top" secondItem="KUn-hB-OCX" secondAttribute="top" id="iWt-q1-opW"/>
+                            <constraint firstItem="tgd-FG-VeG" firstAttribute="top" secondItem="KUn-hB-OCX" secondAttribute="top" id="sUg-WN-eQT"/>
+                            <constraint firstItem="ajW-PP-1nI" firstAttribute="leading" secondItem="KUn-hB-OCX" secondAttribute="leading" constant="20" id="uOQ-DA-kd8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="KUn-hB-OCX" secondAttribute="bottom" constant="1" id="EZ5-02-TX3"/>
+                    <constraint firstItem="COk-Hc-X1R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="SxD-5v-0Iv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="COk-Hc-X1R" secondAttribute="trailing" constant="-8" id="WFc-Qy-0wC"/>
+                    <constraint firstItem="COk-Hc-X1R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="lRl-HY-1UT"/>
+                    <constraint firstItem="KUn-hB-OCX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="nBt-N8-cBR"/>
+                    <constraint firstItem="KUn-hB-OCX" firstAttribute="top" secondItem="COk-Hc-X1R" secondAttribute="bottom" id="xdh-YW-vM8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KUn-hB-OCX" secondAttribute="trailing" constant="-8" id="zGc-0u-9r4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <connections>
+                <outlet property="shopDiscount" destination="tgd-FG-VeG" id="o59-5C-RnW"/>
+                <outlet property="shopImage" destination="COk-Hc-X1R" id="XGx-Eg-LuS"/>
+                <outlet property="shopName" destination="ajW-PP-1nI" id="1HW-Rc-Bvd"/>
+            </connections>
+            <point key="canvasLocation" x="243.5" y="348"/>
+        </tableViewCell>
+    </objects>
+</document>
