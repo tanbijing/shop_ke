@@ -18,14 +18,14 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var discount: UILabel!
     var detailUrl :String?
     
-    init() {
-        super.init(nibName: "ProductDetailViewController", bundle: nil)
-        NSBundle.mainBundle().loadNibNamed("ProductDetailViewController", owner: self, options: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init() {
+//        super.init(nibName: "ProductDetailViewController", bundle: nil)
+//        NSBundle.mainBundle().loadNibNamed("ProductDetailViewController", owner: self, options: nil)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

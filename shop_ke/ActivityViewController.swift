@@ -9,13 +9,13 @@
 import UIKit
 import Alamofire
 
-class ActivityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ActivityViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate {
     @IBOutlet weak var bannerSv: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var activityTableView: UITableView!
     
-    var activities:[Activity] = []
-    var showBannerActivities:[Activity] = []
+    var activities:[Activity] = [] //获取到的定时跳转的图片数据形成一个数组
+    var showBannerActivities:[Activity] = [] //从数据中取出三个形成一个固定的数组
     var bannerTime:NSTimer? = nil
     var shops = [ActivityShop]()  //商店数据
     
@@ -44,7 +44,8 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    //当scrollcView的contentOffset发生变化时候开始调用
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView != self.bannerSv{
             return
@@ -73,15 +74,18 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
         }
     }
     
-    func loadData(){
-        var params:Dictionary<String,AnyObject> = Dictionary()
+    //加载数据
+    func loadData() {
+//        var params:Dictionary<String,AnyObject> = Dictionary()
+        var params = [String : AnyObject]()
         params["client_type"] = "iphone"
         params["num"] = "4"
         params["pa"] = "pa"
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
                 print(successData)
                 self.activities = Activity.saveDataToModel(successData["activities"])
-                self.performSelector(Selector("loadBanner"), onThread: NSThread.mainThread(), withObject:self.activities, waitUntilDone: true)
+//                self.performSelector(Selector("loadBanner"), onThread: NSThread.mainThread(), withObject:self.activities, waitUntilDone: true)
+                self.loadBanner()
             
                 self.shops = ActivityShop.getActivityShop(successData) //存商品数据
                 self.activityTableView.reloadData() //渲染表格
@@ -90,8 +94,9 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
                 print(failData)
         }
     }
+    
     //第一次加载banner数据
-    func loadBanner(){
+    func loadBanner() {
         for image in self.bannerSv.subviews{
             image.removeFromSuperview()
         }
@@ -115,16 +120,18 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
         }
         bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
     }
+    
     //bunner滚动定时器
-    func loopBannerImage(){
+    func loopBannerImage() {
         UIView.animateWithDuration(0.7, animations: { () -> Void in
                 self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width*CGFloat(2), 0), animated: true)
             }) { (result) -> Void in
                 print("buner定时滚动:\(result)")
         }
     }
+    
     //滚动到scrollView的端点后刷新bunner
-    func refreshBannerDatas(){
+    func refreshBannerDatas() {
         self.changeBunnerShowDatas()
         var scrollImages = self.bannerSv.subviews as! [UIImageView]
         var activity_index = 0
@@ -136,8 +143,9 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
         }
         self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width,0), animated: false)
     }
+    
     //根据当前的page改变要显示的bunner数据
-    func changeBunnerShowDatas(){
+    func changeBunnerShowDatas() {
         let currentPage = self.pageControl.currentPage
         switch currentPage{
             case 0:
@@ -148,8 +156,9 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
                 self.setShowActivities(currentPage-1, currentIndex: currentPage, lastIndex: currentPage+1)
         }
     }
+    
     //重置bunner显示的活动数组
-    func setShowActivities(firstIndex:Int,currentIndex:Int,lastIndex:Int){
+    func setShowActivities(firstIndex:Int,currentIndex:Int,lastIndex:Int) {
         print(self.activities.count)
         self.showBannerActivities.removeAll()
         self.showBannerActivities.append(self.activities[firstIndex])
@@ -169,9 +178,7 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
         let shop = shops[indexPath.row]
         cell.shopImage.setWebImage(shop.image_url, placeHolder: image)
         cell.shopDiscount.text = String(shop.discount)+"折起"
-        print(shop.discount)
         cell.shopName.text = shop.name
-        print(shop.name)
         return cell
     }
     

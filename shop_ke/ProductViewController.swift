@@ -143,6 +143,8 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
             self.detail = Detail.setDetail(successData)
             print(successData)
             let selectDetail = ProductDetailViewController()
+            NSBundle.mainBundle().loadNibNamed("ProductDetailViewController", owner: selectDetail, options: nil)
+
 
             let image = UIImage(named: "zpzk")
             selectDetail.detailImage.setWebImage(self.detail.detailImage!, placeHolder: image)

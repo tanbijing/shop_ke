@@ -10,7 +10,7 @@ import Foundation
 
 //MARK:活动商店数据
 class ActivityShop {
-    var discount = 0
+    var discount = 0.0
     var name = ""
     var image_url = ""
     
@@ -20,7 +20,7 @@ class ActivityShop {
             for index in 0..<arr.count {
                 let arr_data = arr[index]
                 let shop = ActivityShop()
-                shop.discount = arr_data["discount"] as! Int
+                shop.discount = arr_data["discount"] as! Double
                 shop.name = arr_data["name"] as! String
                 shop.image_url = arr_data["img_url"] as! String
                 shops.append(shop)
