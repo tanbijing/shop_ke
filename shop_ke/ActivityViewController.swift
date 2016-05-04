@@ -22,11 +22,10 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.tintColor = UIColor.redColor()
-        
-        
         activityTableView.registerNib(UINib(nibName: "ActivityTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,8 +75,10 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     
     //加载数据
     func loadData() {
-//        var params:Dictionary<String,AnyObject> = Dictionary()
-        let params = [String : AnyObject]()
+        var params = [String : AnyObject]()
+        params["client_type"] = "iphone"
+        params["num"] = "4"
+        params["pa"] = "pa"
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
                 print(successData)
                 self.activities = Activity.saveDataToModel(successData["activities"])
@@ -85,7 +86,6 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
             
                 self.shops = ActivityShop.getActivityShop(successData) //存商品数据
                 self.activityTableView.reloadData() //渲染表格
-                print(self.shops)
             }) { (failData) -> Void in
                 print(failData)
         }
@@ -93,20 +93,19 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     
     //第一次加载banner数据
     func loadBanner() {
+        //将scrollView里的所有组件移除
         for image in self.bannerSv.subviews{
             image.removeFromSuperview()
         }
-        self.pageControl.numberOfPages = self.activities.count
-        self.bannerSv.contentSize = CGSizeMake(self.bannerSv.frame.width*CGFloat(self.activities.count), self.bannerSv.frame.height)
+        self.pageControl.numberOfPages = self.activities.count //设置page的总数量
+        self.bannerSv.contentSize = CGSizeMake(self.bannerSv.frame.width*CGFloat(self.activities.count), self.bannerSv.frame.height)//设置scrollView滚动区域的大小
         self.changeBunnerShowDatas()
-        var pic_index = 0
-        for activity in self.showBannerActivities{
+        for (pic_index,activity) in self.showBannerActivities.enumerate(){
             let image = UIImageView.init(frame: CGRectMake(self.bannerSv.frame.width*CGFloat(pic_index), 0, self.bannerSv.frame.width, self.bannerSv.frame.height))
             if let activityImageUrl = activity.image_path {
                 image.setWebImage(activityImageUrl , placeHolder: UIImage.init(named: "w_icon"))
             }
             self.bannerSv.addSubview(image)
-            pic_index += 1
         }
         print(bannerSv.subviews.count)
         self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width, 0), animated: false)
@@ -120,7 +119,7 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     
     //bunner滚动定时器
     func loopBannerImage() {
-        UIView.animateWithDuration(0.7, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width*CGFloat(2), 0), animated: true)
             }) { (result) -> Void in
                 print("buner定时滚动:\(result)")
@@ -131,11 +130,10 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     func refreshBannerDatas() {
         self.changeBunnerShowDatas()
         var scrollImages = self.bannerSv.subviews as! [UIImageView]
-        var activity_index = 0
-        for activity in self.showBannerActivities {
+
+        for (index,activity) in self.showBannerActivities.enumerate() {
             if let activityImageUrl = activity.image_path {
-                scrollImages[activity_index].setWebImage(activityImageUrl , placeHolder: UIImage.init(named: "w_icon"))
-                activity_index += 1
+                scrollImages[index].setWebImage(activityImageUrl , placeHolder: UIImage.init(named: "w_icon"))
             }
         }
         self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width,0), animated: false)

@@ -143,8 +143,8 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! LogMenuCollectionViewCell
         
-        let image = UIImage(named: "zpzk")
-        cell.goodsPicture.setWebImage(goods[indexPath.row].image!, placeHolder: image)
+//        let image = UIImage(named: "zpzk")
+        cell.goodsPicture.setWebImage(goods[indexPath.row].image!, placeHolder: UIImage(named: "zpzk"))
         cell.goodsDescribe.text = goods[indexPath.row].content
         cell.goodsPrice.text = "￥" + String(goods[indexPath.row].price!)
         cell.goodsDiscount.text = String(goods[indexPath.row].discount!)+"折"
@@ -165,8 +165,8 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
             NSBundle.mainBundle().loadNibNamed("ProductDetailViewController", owner: selectDetail, options: nil)
 
 
-            let image = UIImage(named: "zpzk")
-            selectDetail.detailImage.setWebImage(self.detail.detailImage!, placeHolder: image)
+//            let image = UIImage(named: "zpzk")
+            selectDetail.detailImage.setWebImage(self.detail.detailImage!, placeHolder: UIImage(named: "zpzk"))
             selectDetail.detailIntroduction.text = self.detail.detailIntroduction!
             selectDetail.discountPrice.text = "￥"+String(self.detail.discountPrice!)
             selectDetail.originalPrice.text = "原价:"+String(self.detail.originalPrice!)
