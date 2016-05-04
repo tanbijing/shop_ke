@@ -62,7 +62,7 @@
                 </scrollView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IJl-r0-cad">
                     <rect key="frame" x="93" y="60" width="282" height="607"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XXs-yR-Qpj">
                         <size key="itemSize" width="80" height="100"/>
                         <size key="headerReferenceSize" width="50" height="30"/>

@@ -16,7 +16,10 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     var goods = [Goods]() //商品数据
     var refreshControl = UIRefreshControl() //下拉刷新
-    let arr = Tag.getTags() //标签数据
+    
+    var arr = [] //标签数据
+//    let arr = Tag.getTags()
+    
     var detail = Detail() //商品详情数据
     var activityIndicatorView = UIActivityIndicatorView() //活动指示器
     
@@ -29,7 +32,10 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.color = UIColor.blackColor()
         self.view.addSubview(activityIndicatorView)
-
+        
+       arr = NSUserDefaults.standardUserDefaults().objectForKey("saveTag") as! NSArray
+        
+        loadTags()
         loadTagView()
         loadProduct(6)
 
@@ -48,6 +54,19 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK:获取标签
+    func loadTags(){
+        //从接口获取标签保存至本地
+        let params = [String : AnyObject]()
+        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/tag_list", params: params, onSuccess: { (successData) -> Void in
+            Tag.saveTags(successData as! NSArray)
+            //            NSUserDefaults.standardUserDefaults().setObject(successData, forKey: "saveTag")
+        }) { (failData) -> Void in
+            print("保存标签失败")
+        }
+    }
+
     
     //MARK:加载标签
     func loadTagView() {

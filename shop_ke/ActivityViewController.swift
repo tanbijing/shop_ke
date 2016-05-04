@@ -22,7 +22,7 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.tintColor = UIColor.redColor()
-        loadData()
+        
         
         activityTableView.registerNib(UINib(nibName: "ActivityTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view.
@@ -30,8 +30,8 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
-        
+        bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(ActivityViewController.loopBannerImage), userInfo: nil, repeats: true)
+        loadData()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -77,14 +77,10 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
     //加载数据
     func loadData() {
 //        var params:Dictionary<String,AnyObject> = Dictionary()
-        var params = [String : AnyObject]()
-        params["client_type"] = "iphone"
-        params["num"] = "4"
-        params["pa"] = "pa"
+        let params = [String : AnyObject]()
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
                 print(successData)
                 self.activities = Activity.saveDataToModel(successData["activities"])
-//                self.performSelector(Selector("loadBanner"), onThread: NSThread.mainThread(), withObject:self.activities, waitUntilDone: true)
                 self.loadBanner()
             
                 self.shops = ActivityShop.getActivityShop(successData) //存商品数据
@@ -112,13 +108,14 @@ class ActivityViewController: UIViewController,UITableViewDataSource,UITableView
             self.bannerSv.addSubview(image)
             pic_index += 1
         }
+        print(bannerSv.subviews.count)
         self.bannerSv.setContentOffset(CGPointMake(self.bannerSv.frame.size.width, 0), animated: false)
         //判断定时器是否释放
         if ((bannerTime) != nil) {
             bannerTime!.invalidate()
             bannerTime = nil
         }
-        bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("loopBannerImage"), userInfo: nil, repeats: true)
+        bannerTime = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(ActivityViewController.loopBannerImage), userInfo: nil, repeats: true)
     }
     
     //bunner滚动定时器

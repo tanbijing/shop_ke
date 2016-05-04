@@ -18,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //从接口获取标签保存至本地
         let params = [String : AnyObject]()
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/tag_list", params: params, onSuccess: { (successData) -> Void in
-            Tag.saveTags(successData as! NSArray)
+            
+//            Tag.saveTags(successData as! NSArray)
+            NSUserDefaults.standardUserDefaults().setObject(successData, forKey: "saveTag")
+            
             }) { (failData) -> Void in
                 print("保存标签失败")
         }
@@ -35,12 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         loadTags()
         loadLeftMenu()
         return true
     }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
