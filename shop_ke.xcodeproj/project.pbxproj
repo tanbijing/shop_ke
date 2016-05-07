@@ -19,7 +19,6 @@
 		044FF04C1C96C21C009A7E75 /* LeftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FF04B1C96C21C009A7E75 /* LeftMenu.swift */; };
 		0451FFC91C97A5ED00569B81 /* leftMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FFC71C97A5ED00569B81 /* leftMenuCollectionViewCell.swift */; };
 		0451FFCA1C97A5ED00569B81 /* leftMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451FFC81C97A5ED00569B81 /* leftMenuCollectionViewCell.xib */; };
-		045F79B41C8E9FB600171D9C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F79B31C8E9FB600171D9C /* Tag.swift */; };
 		04632FBF1C9A555700B26D30 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04632FBD1C9A555700B26D30 /* ProductDetailViewController.swift */; };
 		04632FC01C9A555700B26D30 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04632FBE1C9A555700B26D30 /* ProductDetailViewController.xib */; };
 		04632FC21C9A962A00B26D30 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04632FC11C9A962A00B26D30 /* Detail.swift */; };
@@ -79,7 +78,6 @@
 		044FF04B1C96C21C009A7E75 /* LeftMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenu.swift; sourceTree = "<group>"; };
 		0451FFC71C97A5ED00569B81 /* leftMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leftMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0451FFC81C97A5ED00569B81 /* leftMenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftMenuCollectionViewCell.xib; sourceTree = "<group>"; };
-		045F79B31C8E9FB600171D9C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		04632FBD1C9A555700B26D30 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		04632FBE1C9A555700B26D30 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		04632FC11C9A962A00B26D30 /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				042AA8611C86ED23005783AC /* User.swift */,
-				045F79B31C8E9FB600171D9C /* Tag.swift */,
 				044FF04B1C96C21C009A7E75 /* LeftMenu.swift */,
 				0479DE7D1C86863200101F2D /* HttpManager.swift */,
 				04D62E341C86CB5E00E52437 /* Activity.swift */,
@@ -491,7 +488,6 @@
 				04BF504D1C857BBF00D0632C /* SettingViewController.swift in Sources */,
 				04D62E351C86CB5E00E52437 /* Activity.swift in Sources */,
 				0447AD021C846D2B00287A32 /* loginViewController.swift in Sources */,
-				045F79B41C8E9FB600171D9C /* Tag.swift in Sources */,
 				04632FBF1C9A555700B26D30 /* ProductDetailViewController.swift in Sources */,
 				043EA9C01C8AC14D00FFCE5D /* LogMenuViewController.swift in Sources */,
 				0479DE7E1C86863200101F2D /* HttpManager.swift in Sources */,

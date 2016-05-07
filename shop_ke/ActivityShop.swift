@@ -13,6 +13,7 @@ class ActivityShop {
     var discount = 0.0
     var name = ""
     var image_url = ""
+    var activities:[Activity] = [] //获取到的定时跳转的图片数据形成一个数组
     
     static func getActivityShop(data:AnyObject?) ->[ActivityShop]{
         var shops = [ActivityShop]()
@@ -36,5 +37,22 @@ class ActivityShop {
         return shops
     }
     
+//    //加载数据
+//    func loadData() {
+//        var params = [String : AnyObject]()
+//        params["client_type"] = "iphone"
+//        params["num"] = "4"
+//        params["pa"] = "pa"
+//        HttpManager.httpGetRequest(.GET, api_url: API_URL+"/brand_theme_index", params: params, onSuccess: { (successData) -> Void in
+//            self.activities = Activity.saveDataToModel(successData["activities"])
+//            self.loadBanner()
+//            
+//            self.shops = ActivityShop.getActivityShop(successData) //存商品数据
+//            self.activityTableView.reloadData() //渲染表格
+//        }) { (failData) -> Void in
+//            print(failData)
+//        }
+//    }
+
     
 }

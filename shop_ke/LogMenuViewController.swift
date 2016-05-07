@@ -122,14 +122,23 @@ class LogMenuViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK:cell的数量
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let collection = collection,
-            let subTagGroup = collection["sub_tag_group"],
-            let dict = subTagGroup[section],
-            let array = dict["group_key"] as? [AnyObject] {
-            return array.count
+//        if let collection = collection,
+//            let subTagGroup = collection["sub_tag_group"],
+//            let dict = subTagGroup[section],
+//            let array = dict["group_key"] as? [AnyObject] {
+//            return array.count
+//        } else {
+//            return 0
+//        }
+        if collection == nil {
+            return  0
         } else {
-            return 0
+            let subTagGroup = collection!["sub_tag_group"] as! [[String: AnyObject]]
+            let dict = subTagGroup[section]
+            let array = dict["group_key"] as! [String]
+            return array.count
         }
+
     }
     
     //MARK:点击cell

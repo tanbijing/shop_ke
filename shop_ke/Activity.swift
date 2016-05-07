@@ -17,16 +17,14 @@ class Activity {
     
     static func saveDataToModel(data:AnyObject?)->[Activity]{
         var return_datas:[Activity] = []
-        if let activities = data{
-            for index in 0..<activities.count {
-                let activity_data = activities[index]
-                let activity = Activity()
-                activity.image_path = activity_data["image_path"] as? String
-                activity.image_url = activity_data["image_url"] as? String
-                activity.name = activity_data["name"] as? String
-                activity.url = activity_data["url"] as? String
-                return_datas.append(activity)
-            }
+        let activities = data!["activities"] as! [[String:AnyObject]]
+        for activity_data in activities {
+            let activity = Activity()
+            activity.image_path = activity_data["image_path"] as? String
+            activity.image_url = activity_data["image_url"] as? String
+            activity.name = activity_data["name"] as? String
+            activity.url = activity_data["url"] as? String
+            return_datas.append(activity)
         }
         return return_datas
     }

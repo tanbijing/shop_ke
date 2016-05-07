@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 class HttpManager{
+    
     static func httpGetRequest(method:Alamofire.Method,api_url:String,params:Dictionary<String,AnyObject>,onSuccess:(successData:AnyObject)->Void,onFailed:(failData:AnyObject)->Void){
         
         Alamofire.request(method, api_url, parameters: params)

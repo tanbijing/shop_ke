@@ -43,11 +43,10 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         goodsCollectionView.registerNib(UINib(nibName: "LogMenuCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
         //下拉刷新
-        refreshControl.addTarget(self, action: "refreshData", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(ProductViewController.refreshData), forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新数据")
         refreshControl.tintColor = UIColor.redColor()
         goodsCollectionView.addSubview(refreshControl)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +59,8 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
         //从接口获取标签保存至本地
         let params = [String : AnyObject]()
         HttpManager.httpGetRequest(.GET, api_url: API_URL+"/tag_list", params: params, onSuccess: { (successData) -> Void in
-            Tag.saveTags(successData as! NSArray)
-            //            NSUserDefaults.standardUserDefaults().setObject(successData, forKey: "saveTag")
+//            Tag.saveTags(successData as! NSArray)
+                        NSUserDefaults.standardUserDefaults().setObject(successData, forKey: "saveTag")
         }) { (failData) -> Void in
             print("保存标签失败")
         }
@@ -70,22 +69,21 @@ class ProductViewController: UIViewController,UICollectionViewDataSource,UIColle
     
     //MARK:加载标签
     func loadTagView() {
-        var index :Int
         goodsScrollView.contentSize = CGSizeMake(CGFloat(arr.count)*65, 30)
-        for index = 0 ; index < arr.count ; ++index {
-            let btn = UIButton(type: .System)
-            btn.frame = CGRectMake(CGFloat(Float(index)) * 65, 0, 65, 30)
-            btn.setTitle((arr[index]["name"]) as? String, forState: UIControlState.Normal)
-//            btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
-            btn.tintColor = UIColor.blackColor()
-            btn.tag = index
-            btn.addTarget(self, action: Selector("tagClick:"), forControlEvents: .TouchUpInside)
-            //使第一个颜色变红
-            if index == 0 {
-                btn.tintColor = UIColor.redColor()
+            for index in 0..<arr.count {
+                let btn = UIButton(type: .System)
+                btn.frame = CGRectMake(CGFloat(Float(index)) * 65, 0, 65, 30)
+                btn.setTitle((arr[index]["name"]) as? String, forState: UIControlState.Normal)
+                //            btn.setTitleColor(UIColor.redColor(),forState: .Highlighted)
+                btn.tintColor = UIColor.blackColor()
+                btn.tag = index
+                btn.addTarget(self, action: #selector(ProductViewController.tagClick(_:)), forControlEvents: .TouchUpInside)
+                //使第一个颜色变红
+                if index == 0 {
+                    btn.tintColor = UIColor.redColor()
+                }
+                goodsScrollView.addSubview(btn)
             }
-            goodsScrollView.addSubview(btn)
-        }
     }
     
     //MARK:点击标签
